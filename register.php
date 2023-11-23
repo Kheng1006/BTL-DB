@@ -9,9 +9,9 @@
     <meta content="Webflow" name="generator" />
     <!-- <link href="loginStyle.css"
         rel="stylesheet" type="text/css" /> -->
-        <style>
-  <?php include "loginStyle.css" ?>
-</style>
+    <style>
+        <?php include "loginStyle.css" ?>
+    </style>
 </head>
 
 <body>
@@ -38,7 +38,7 @@
                     class="w-users-userformbutton button w-button" /><input
                     type="submit" value="Clear" style="float:right;" data-wait="Please wait..."
                     class="w-users-userformbutton button w-button" />
-                <a href="https://account.hcmut.edu.vn/" class="below-card-link">Change password?</a>
+                <!-- <a href="https://account.hcmut.edu.vn/" class="below-card-link">Change password?</a> -->
             </form>
             </div>
        
