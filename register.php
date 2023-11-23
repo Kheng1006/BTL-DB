@@ -7,8 +7,11 @@
     <title>SPSS - Central Authentication Service</title>
     <meta content="width=device-width, initial-scale=1" name="viewport" />
     <meta content="Webflow" name="generator" />
-    <link href="loginStyle.css"
-        rel="stylesheet" type="text/css" />
+    <!-- <link href="loginStyle.css"
+        rel="stylesheet" type="text/css" /> -->
+        <style>
+  <?php include "loginStyle.css" ?>
+</style>
 </head>
 
 <body>
