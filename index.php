@@ -331,7 +331,7 @@
                                             <div class="text-100 medium">Support</div>
                                         </a>-->
                                         <a id="w-node-_8902ab60-ff18-1ad1-7b19-201b504197a7-504196ac"
-                                            href="loginIndex.php"
+                                            href="register.php"
                                             class="font-icon-left-link color-red-300 w-inline-block">
                                             <div class="dashdark-custom-icon"></div>
                                             <div class="text-100 medium">Log out</div>
@@ -375,17 +375,17 @@
                                         data-w-id="1aef72c2-116c-c314-e494-12c842340a8e"
                                         alt="" class="mg-bottom-8px"/>
                                     <h1 data-w-id="8f1442fd-5729-fb94-cef7-96c4c4b9f370" style="opacity:0"
-                                        class="display-2">Start your printing service from your favorite school</h1>
-                                    <p data-w-id="10e46652-5b20-ff4a-1583-24819cbe6c9e" style="opacity:0"
-                                        class="paragraph-large mg-bottom-32px">You can start printing by clicking the the button below</p>
-                                    <div data-w-id="eaa9b713-2916-3c9d-d7ef-5e38f5e44a70" style="opacity:0"><a href="print.php"
+                                        class="display-2">Start managing your quarantine camp database</h1>
+                                    <!-- <p data-w-id="10e46652-5b20-ff4a-1583-24819cbe6c9e" style="opacity:0"
+                                        class="paragraph-large mg-bottom-32px">You can start printing by clicking the the button below</p> -->
+                                    <!-- <div data-w-id="eaa9b713-2916-3c9d-d7ef-5e38f5e44a70" style="opacity:0"><a href="print.php"
                                             class="btn-primary large w-inline-block">
                                             <div class="flex-horizontal gap-column-8px">
                                                 <div>Start printing</div><img
                                                     src="https://assets-global.website-files.com/652a49b013ed5242e0b91280/652a49b013ed5242e0b912f9_btn-arrow-right-dashdark-webflow-template.svg"
                                                     loading="eager" alt="" class="btn-icon-right max-h-16px" />
                                             </div>
-                                        </a></div>
+                                        </a></div> -->
                                 </div>
                             </div>
                             <!--<div data-w-id="d6462bc4-1377-95de-75e5-1ac7ec9ba3ff" style="opacity:0"
@@ -519,7 +519,7 @@
                                 </div>
                             </div>
                         </div>-->
-                        <div class="mg-bottom-140px">
+                        <!-- <div class="mg-bottom-140px">
                             <div data-w-id="f8b6bee1-ca81-920b-5257-187c563b5b8d" style="opacity:0"
                                 class="text-center mg-bottom-32px">
                                 <div class="inner-container _524px center">
@@ -560,7 +560,7 @@
                                         </div>
                                     </a>
                                 </div>
-                            </div>
+                            </div> -->
                             <!--<div data-w-id="40bacb50-3d8c-faf6-b2d6-0a95c64b0e29" style="opacity:0"
                                 class="flex-horizontal"><a href="#" class="btn-primary large w-inline-block">
                                     <div class="flex-horizontal gap-column-8px">
@@ -569,7 +569,7 @@
                                             loading="eager" alt="" class="btn-icon-right max-h-16px" />
                                     </div>
                                 </a></div>-->
-                        </div>
+                        <!-- </div> -->
                         <!--<div>
                             <div data-w-id="ffdc2fad-2a4a-8d13-b978-3a5144bc00df" style="opacity:0"
                                 class="w-layout-grid grid-2-columns-2 _1-col-tablet"><a
