@@ -1,3 +1,6 @@
+<?php 
+   session_start();
+?>
 <!DOCTYPE html>
 <html data-wf-domain="memberbase-template.webflow.io" data-wf-page="62b23e3745c1a63ba4be4e39"
     data-wf-site="62aee78456e4207786ac4d18">
@@ -7,9 +10,11 @@
     <title>SPSS - Central Authentication Service</title>
     <meta content="width=device-width, initial-scale=1" name="viewport" />
     <meta content="Webflow" name="generator" />
-    <link href="loginStyle.css"
-        rel="stylesheet" type="text/css" />
-    
+    <!-- <link href="loginStyle.css"
+        rel="stylesheet" type="text/css" /> -->
+    <style>
+        <?php include "loginStyle.css" ?>
+    </style>
 </head>
 
 <body>
@@ -19,21 +24,25 @@
             <!-- <div class="login-logo"><img
                 src="logo.png"
                 class="img-fluid"/></div> -->
-            <form id="student-form" data-wf-user-form-type="login" data-wf-user-form-redirect="/resources" >
+            <form action="login.php" method="post" id="student-form" data-wf-user-form-type="login" data-wf-user-form-redirect="/resources" >
+                <?php if (isset($_GET['error'])) { ?>
+     		        <p class="error"><?php echo $_GET['error']; ?></p>
+     	        <?php } ?>
                 <div class="w-users-userformheader form-card-header" >
                     <h2 class="heading h3">Central Authentication Service</h2>
                 <div class="login-divider"></div>
                     <!-- <h2 class="heading h3">Student log in</h2> -->
                     <p class="login-heading">Fill in your log in details below.</p>
                     <div id="login-message"></div>
-                </div><input id="username" type="text" maxlength="256" placeholder="Your username" name="Username" 
+                </div><input id="username" type="text" maxlength="256" placeholder="Username" name="Username" 
                     class="text-field w-input" required="" data-wf-user-form-input-type="email" /><input type="password"
-                    maxlength="256" placeholder="Your password" name="Password" id="password"
+                    maxlength="256" placeholder="Password" name="Password" id="password"
                     class="text-field w-input" required="" data-wf-user-form-input-type="password" />
                 <div class="login-divider"></div>
                     <input
                     type="submit" value="Log In" data-wait="Please wait..."
-                    class="w-users-userformbutton button w-button" /><input
+                    class="w-users-userformbutton button w-button" />
+                    <input
                     type="submit" value="Clear" style="float:right;" data-wait="Please wait..."
                     class="w-users-userformbutton button w-button" />
                 <!-- <a href="https://account.hcmut.edu.vn/" class="below-card-link">Change password?</a> -->
@@ -57,5 +66,5 @@
         </div>
     </div>
 </body>
-<script src="text.js"></script>
+<!-- <script src="text.js"></script> -->
 </html>
