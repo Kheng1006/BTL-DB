@@ -31,8 +31,10 @@
     
     
     
-    <link href="style.css" rel="stylesheet" type="text/css" />
-    
+    <!-- <link href="style.css" rel="stylesheet" type="text/css" /> -->
+    <style>
+        <?php include "style.css" ?>
+    </style>
     <script type="text/javascript">
         !function (o, c) { var n = c.documentElement, t = " w-mod-";
         n.className += t + "js", ("ontouchstart" in o || o.DocumentTouch && c instanceof DocumentTouch) && (n.className += t + "touch") }(window, document);
@@ -61,7 +63,7 @@
             data-duration="400" data-easing="ease" data-easing2="ease" role="banner" class="sidebar-wrapper w-nav">
             <div class="overflow-hidden">
                 <div class="sidebar-logo-section-container">
-                    <a href="./index.html" 
+                    <a href="index.php" 
                         aria-current="page"
                         class="sidebar-logo-link w-nav-brand w--current"
                     >
@@ -99,7 +101,7 @@
                         <!-- LEFT NAVBAR -->
 
                         <!-- Printing Service -->
-                        <a href="print.html" class="sidebar-dropdown-link" style="text-decoration: none;">
+                        <a href="print.php" class="sidebar-dropdown-link" style="text-decoration: none;">
                             <div data-hover="false" data-delay="0" data-w-id="8902ab60-ff18-1ad1-7b19-201b504196bd"
                                 class="dropdown-wrapper sidebar-dropdown w-dropdown"
                             >
@@ -114,7 +116,7 @@
 
 
                         <!-- Paper Purchase -->
-                        <a href="pricing.html" class="sidebar-dropdown-link" style="text-decoration: none;">
+                        <a href="pricing.php" class="sidebar-dropdown-link" style="text-decoration: none;">
                             <div data-hover="false" data-delay="0" data-w-id="8902ab60-ff18-1ad1-7b19-201b504196bd"
                                 class="dropdown-wrapper sidebar-dropdown w-dropdown">
                                 <div class="dropdown-toggle sidebar-dropdown ">
@@ -128,7 +130,7 @@
 
 
                         <!-- Printing History -->
-                        <a href="history.html" class="sidebar-dropdown-link" style="text-decoration: none;">
+                        <a href="history.php" class="sidebar-dropdown-link" style="text-decoration: none;">
                             <div data-hover="false" data-delay="0" data-w-id="8902ab60-ff18-1ad1-7b19-201b504196bd"
                                 class="dropdown-wrapper sidebar-dropdown w-dropdown"
                             >
@@ -199,7 +201,7 @@
                                     <div class="sidebar-account-settings-divider"></div>
                                     <div class="grid-1-column gap-row-16px">
                                         <a id="w-node-_8902ab60-ff18-1ad1-7b19-201b504197a7-504196ac"
-                                            href="loginIndex.html"
+                                            href="loginIndex.php"
                                             class="font-icon-left-link color-red-300 w-inline-block"
                                         >
                                             <div class="dashdark-custom-icon"></div>

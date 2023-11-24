@@ -27,9 +27,12 @@
     <meta content="summary_large_image" name="twitter:card" />
     <meta content="width=device-width, initial-scale=1" name="viewport" />
     <meta content="Webflow" name="generator" />
-    <link
+    <!-- <link
         href="style.css"
-        rel="stylesheet" type="text/css" />
+        rel="stylesheet" type="text/css" /> -->
+    <style>
+        <?php include "style.css" ?>
+    </style>
     <script
         type="text/javascript">!function (o, c) { var n = c.documentElement, t = " w-mod-"; n.className += t + "js", ("ontouchstart" in o || o.DocumentTouch && c instanceof DocumentTouch) && (n.className += t + "touch") }(window, document);</script>
     <link
@@ -45,7 +48,7 @@
         <div data-w-id="8902ab60-ff18-1ad1-7b19-201b504196ac" data-animation="over-right" data-collapse="medium"
             data-duration="400" data-easing="ease" data-easing2="ease" role="banner" class="sidebar-wrapper w-nav">
             <div class="overflow-hidden">
-                <div class="sidebar-logo-section-container"><a href="index.html" aria-current="page"
+                <div class="sidebar-logo-section-container"><a href="index.php" aria-current="page"
                         class="sidebar-logo-link w-nav-brand w--current"><img
                             src="./images/logobk.svg"
                             loading="eager" alt="" /></a>
@@ -68,7 +71,7 @@
                     <nav role="navigation" class="sidebar-menu-container w-nav-menu">
                         <div class="sidebar-menu-collapsed-overlay"></div>
                         <!-- Print -->
-                        <a href="print.html" class="sidebar-dropdown-link" style="text-decoration: none;">
+                        <a href="print.php" class="sidebar-dropdown-link" style="text-decoration: none;">
                             <div data-hover="false" data-delay="0" data-w-id="8902ab60-ff18-1ad1-7b19-201b504196bd"
                                 class="dropdown-wrapper sidebar-dropdown w-dropdown">
                                 <div class="dropdown-toggle sidebar-dropdown">
@@ -80,7 +83,7 @@
                             </div>
                         </a>
                         <!-- Purchase Paper -->
-                        <a href="pricing.html" class="sidebar-dropdown-link" style="text-decoration: none;">
+                        <a href="pricing.php" class="sidebar-dropdown-link" style="text-decoration: none;">
                             <div data-hover="false" data-delay="0" data-w-id="8902ab60-ff18-1ad1-7b19-201b504196bd"
                                 class="dropdown-wrapper sidebar-dropdown w-dropdown">
                                 <div class="dropdown-toggle sidebar-dropdown ">
@@ -92,7 +95,7 @@
                             </div>
                         </a>
                         <!-- View History -->
-                        <a href="history.html" class="sidebar-dropdown-link" style="text-decoration: none;">
+                        <a href="history.php" class="sidebar-dropdown-link" style="text-decoration: none;">
                             <div data-hover="false" data-delay="0" data-w-id="8902ab60-ff18-1ad1-7b19-201b504196bd"
                                 class="dropdown-wrapper sidebar-dropdown w-dropdown">
                                 <div class="dropdown-toggle sidebar-dropdown ">
@@ -330,7 +333,7 @@
                                             <div class="text-100 medium">Support</div>
                                         </a>-->
                                         <a id="w-node-_8902ab60-ff18-1ad1-7b19-201b504197a7-504196ac"
-                                            href="loginIndex.html"
+                                            href="loginIndex.php"
                                             class="font-icon-left-link color-red-300 w-inline-block">
                                             <div class="dashdark-custom-icon"></div>
                                             <div class="text-100 medium">Log out</div>
@@ -377,7 +380,7 @@
                                         class="display-2">Start your printing service from your favorite school</h1>
                                     <p data-w-id="10e46652-5b20-ff4a-1583-24819cbe6c9e" style="opacity:0"
                                         class="paragraph-large mg-bottom-32px">You can start printing by clicking the the button below</p>
-                                    <div data-w-id="eaa9b713-2916-3c9d-d7ef-5e38f5e44a70" style="opacity:0"><a href="print.html"
+                                    <div data-w-id="eaa9b713-2916-3c9d-d7ef-5e38f5e44a70" style="opacity:0"><a href="print.php"
                                             class="btn-primary large w-inline-block">
                                             <div class="flex-horizontal gap-column-8px">
                                                 <div>Start printing</div><img
@@ -412,7 +415,7 @@
                                 class="mg-bottom-32px">
                                 <div class="w-layout-grid grid-3-columns _1-col-tablet gap-20px">
                                     <a id="w-node-fb514822-0e5c-02dc-94d8-e2e50efe10fb-e0b912c8"
-                                        data-w-id="fb514822-0e5c-02dc-94d8-e2e50efe10fb" href="print.html"
+                                        data-w-id="fb514822-0e5c-02dc-94d8-e2e50efe10fb" href="print.php"
                                         class="card sales-home-page w-inline-block">
                                         <div class="position-relative---z-index-1 overflow-hidden"><img
                                                 src="./images/placeholder.png"
@@ -427,7 +430,7 @@
                                             <div class="text-300 medium color-accent-1">View page</div>
                                         </div>
                                     </a><a id="w-node-_09a3907e-db4a-6ca5-b943-a8a4f5f0e60e-e0b912c8"
-                                        data-w-id="09a3907e-db4a-6ca5-b943-a8a4f5f0e60e" href="pricing.html"
+                                        data-w-id="09a3907e-db4a-6ca5-b943-a8a4f5f0e60e" href="pricing.php"
                                         class="card sales-home-page w-inline-block">
                                         <div class="position-relative---z-index-1 overflow-hidden"><img
                                                 src="./images/placeholder.png"
@@ -439,7 +442,7 @@
                                             <div class="text-300 medium color-accent-1">View page</div>
                                         </div>
                                     </a><a id="w-node-d35e68b7-ebbf-f6e8-59d5-aa67646aac86-e0b912c8"
-                                        data-w-id="d35e68b7-ebbf-f6e8-59d5-aa67646aac86" href="history.html"
+                                        data-w-id="d35e68b7-ebbf-f6e8-59d5-aa67646aac86" href="history.php"
                                         class="card sales-home-page w-inline-block">
                                         <div class="position-relative---z-index-1 overflow-hidden"><img
                                                 src="./images/placeholder.png"

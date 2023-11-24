@@ -7,7 +7,7 @@ var x = document.getElementById('login-message');
         var password=document.getElementById('password').value;
         if(re.exec(username)){
             x.innerHTML="";
-            window.location.href = "index.html";
+            window.location.href = "index.php";
         } else{
             x.style="background-color: rgb(255, 238, 221);color:red";
             x.innerHTML="Invalid HCMUT account";
