@@ -39,12 +39,15 @@
                     maxlength="256" placeholder="Password" name="Password" id="password"
                     class="text-field w-input" required="" data-wf-user-form-input-type="password" />
                 <div class="login-divider"></div>
+                    
+                <div style="text-align: center;">
                     <input
                     type="submit" value="Log In" data-wait="Please wait..."
                     class="w-users-userformbutton button w-button" />
-                    <input
+                </div>
+                    <!-- <input
                     type="submit" value="Clear" style="float:right;" data-wait="Please wait..."
-                    class="w-users-userformbutton button w-button" />
+                    class="w-users-userformbutton button w-button" /> -->
                 <!-- <a href="https://account.hcmut.edu.vn/" class="below-card-link">Change password?</a> -->
             </form>
             </div>

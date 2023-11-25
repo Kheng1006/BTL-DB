@@ -69,13 +69,13 @@
                     <nav role="navigation" class="sidebar-menu-container w-nav-menu">
                         <div class="sidebar-menu-collapsed-overlay"></div>
                         <!-- Print -->
-                        <a href="print.php" class="sidebar-dropdown-link" style="text-decoration: none;">
+                        <a href="search.php" class="sidebar-dropdown-link" style="text-decoration: none;">
                             <div data-hover="false" data-delay="0" data-w-id="8902ab60-ff18-1ad1-7b19-201b504196bd"
                                 class="dropdown-wrapper sidebar-dropdown w-dropdown">
                                 <div class="dropdown-toggle sidebar-dropdown">
                                     <div class="flex">
                                         <div class="dashdark-custom-icon sidebar-link-icon"></div>
-                                        <div class="text-200 sidebar-dropdown-text">Printing Service</div>
+                                        <div class="text-200 sidebar-dropdown-text">Searching Patient</div>
                                     </div>
                                 </div>
                             </div>
@@ -87,7 +87,7 @@
                                 <div class="dropdown-toggle sidebar-dropdown ">
                                     <div class="flex">
                                         <div class="dashdark-custom-icon sidebar-link-icon"></div>
-                                        <div class="text-200 sidebar-dropdown-text">Paper Purchase</div>
+                                        <div class="text-200 sidebar-dropdown-text">Add Patient</div>
                                     </div>
                                 </div>
                             </div>
@@ -99,7 +99,19 @@
                                 <div class="dropdown-toggle sidebar-dropdown ">
                                     <div class="flex">
                                         <div class="dashdark-custom-icon sidebar-link-icon"></div>
-                                        <div class="text-200 sidebar-dropdown-text">Printing History</div>
+                                        <div class="text-200 sidebar-dropdown-text">Testing Details</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                        <!-- Making Report -->
+                        <a href="history.php" class="sidebar-dropdown-link" style="text-decoration: none;">
+                            <div data-hover="false" data-delay="0" data-w-id="8902ab60-ff18-1ad1-7b19-201b504196bd"
+                                class="dropdown-wrapper sidebar-dropdown w-dropdown">
+                                <div class="dropdown-toggle sidebar-dropdown ">
+                                    <div class="flex">
+                                        <div class="dashdark-custom-icon sidebar-link-icon"></div>
+                                        <div class="text-200 sidebar-dropdown-text">Making Report</div>
                                     </div>
                                 </div>
                             </div>
@@ -294,7 +306,7 @@
                                         srcset="https://assets-global.website-files.com/652a49b013ed5242e0b91280/652a49b013ed5242e0b912f7_john-carter-sidebar-avatar-dashdark-webflow-ecommerce-template-p-500.jpg 500w, https://assets-global.website-files.com/652a49b013ed5242e0b91280/652a49b013ed5242e0b912f7_john-carter-sidebar-avatar-dashdark-webflow-ecommerce-template.jpg 600w"
                                         alt="John Carter - Dashdark X Webflow Template" class="avatar-circle _01" />
                                     <div class="sidebar-user-text-container">
-                                        <div class="text-200 sidebar-dropdown-text color-neutral-100">User</div>
+                                        <div class="text-200 sidebar-dropdown-text color-neutral-100">Manager</div>
                                         <div class="text-100 sidebar-dropdown-text color-neutral-400">Account settings
                                         </div>
                                     </div>
@@ -411,9 +423,9 @@
                             </div>-->
                             <div data-w-id="273c71fd-8738-7eb5-818f-10ca2c438a7f" style="opacity:0"
                                 class="mg-bottom-32px">
-                                <div class="w-layout-grid grid-3-columns _1-col-tablet gap-20px">
+                                <div class="w-layout-grid grid-2-columns _1-col-tablet gap-20px">
                                     <a id="w-node-fb514822-0e5c-02dc-94d8-e2e50efe10fb-e0b912c8"
-                                        data-w-id="fb514822-0e5c-02dc-94d8-e2e50efe10fb" href="print.php"
+                                        data-w-id="fb514822-0e5c-02dc-94d8-e2e50efe10fb" href="search.php"
                                         class="card sales-home-page w-inline-block">
                                         <div class="position-relative---z-index-1 overflow-hidden"><img
                                                 src="./images/placeholder.png"
@@ -424,7 +436,7 @@
                                             srcset="https://assets-global.website-files.com/652a49b013ed5242e0b91280/652a49b013ed5242e0b9132f_dashdark-x-reports-page-dashboard-webflow-template-p-500.png 500w, https://assets-global.website-files.com/652a49b013ed5242e0b91280/652a49b013ed5242e0b9132f_dashdark-x-reports-page-dashboard-webflow-template-p-800.png 800w, https://assets-global.website-files.com/652a49b013ed5242e0b91280/652a49b013ed5242e0b9132f_dashdark-x-reports-page-dashboard-webflow-template.png 1344w"
                                         -->
                                         <div class="card-sales-home-content">
-                                            <div class="text-400 medium">Printing Service</div>
+                                            <div class="text-400 medium">Searching Patient</div>
                                             <div class="text-300 medium color-accent-1">View page</div>
                                         </div>
                                     </a><a id="w-node-_09a3907e-db4a-6ca5-b943-a8a4f5f0e60e-e0b912c8"
@@ -436,7 +448,7 @@
                                                 sizes="(max-width: 479px) 93vw, (max-width: 991px) 95vw, (max-width: 1439px) 24vw, 334.3359375px"
                                                 class="card-sales-home-image" /></div>
                                         <div class="card-sales-home-content">
-                                            <div class="text-400 medium">Paper Purchase</div>
+                                            <div class="text-400 medium">Adding Patient</div>
                                             <div class="text-300 medium color-accent-1">View page</div>
                                         </div>
                                     </a><a id="w-node-d35e68b7-ebbf-f6e8-59d5-aa67646aac86-e0b912c8"
@@ -448,7 +460,19 @@
                                                 sizes="(max-width: 479px) 93vw, (max-width: 991px) 95vw, (max-width: 1439px) 24vw, 334.3359375px"
                                                 class="card-sales-home-image" /></div>
                                         <div class="card-sales-home-content">
-                                            <div class="text-400 medium">Printing History</div>
+                                            <div class="text-400 medium">Testing Details</div>
+                                            <div class="text-300 medium color-accent-1">View page</div>
+                                        </div>
+                                    </a><a id="w-node-d35e68b7-ebbf-f6e8-59d5-aa67646aac86-e0b912c8"
+                                        data-w-id="d35e68b7-ebbf-f6e8-59d5-aa67646aac86" href="history.php"
+                                        class="card sales-home-page w-inline-block">
+                                        <div class="position-relative---z-index-1 overflow-hidden"><img
+                                                src="./images/placeholder.png"
+                                                alt=""
+                                                sizes="(max-width: 479px) 93vw, (max-width: 991px) 95vw, (max-width: 1439px) 24vw, 334.3359375px"
+                                                class="card-sales-home-image" /></div>
+                                        <div class="card-sales-home-content">
+                                            <div class="text-400 medium">Making Report</div>
                                             <div class="text-300 medium color-accent-1">View page</div>
                                         </div>
                                     </a>
