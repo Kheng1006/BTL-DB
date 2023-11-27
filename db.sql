@@ -8,8 +8,7 @@ create table Patient (
     bDate date not null,
     gender ENUM('F','M') not null,
     comorbitidies varchar(255) not null,
-    highrisk bool not null,
-    warning bool,
+    highrisk bool,
     phone char(9) not null,
     address varchar(255) not null
 );
@@ -57,7 +56,7 @@ create table Worker (
 );
 create table Specialty (
 	id int primary key,
-    specialtyName varchar(10) not null
+    specialtyName varchar(255) not null
 );
 create table Worker_Specialty (
 	workerId int not null,
@@ -65,8 +64,10 @@ create table Worker_Specialty (
     foreign key (workerId) references Worker(workerId)
 );
 create table Admission (
+	admissionId int primary key,
 	patientNumber int not null,
     workerId int not null,
+    warningPatient bool,
     foreign key (patientNumber) references Patient(uniqueId),
     foreign key (workerId) references Worker(workerId),
     moveDate date not null,
@@ -76,7 +77,7 @@ create table Admission (
     testNumber int,
     check (dischargeDate is null or moveDate<=dischargeDate),
     foreign key (testNumber) references TestingRecord(testNumber),
-    constraint PK_admissionRecord primary key (patientNumber,moveDate)
+    index idx_admission (patientNumber,moveDate)
 );
 create table Building (
 	buildingName varchar(255) primary key,
@@ -85,9 +86,9 @@ create table Building (
 );
 create table Room (
 	roomNumber int not null,
-    building varchar(10) not null,
+    building varchar(255) not null,
     floorNumber int not null,
-    roomType varchar(10) not null,
+    roomType varchar(20) not null,
     capacity int not null,
     foreign key (building) references Building(buildingName),
     CONSTRAINT PK_Room PRIMARY KEY (roomNumber,building)
@@ -95,7 +96,7 @@ create table Room (
 create table RoomRecord (
 	patientId int not null,
     roomNumber int not null,
-    building varchar(10) not null,
+    building varchar(255) not null,
     startDate date not null,
     endDate date,
     check(endDate is null or endDate >= startDate),
@@ -117,7 +118,7 @@ create table Treatment (
     doctorId int,
     startDate date not null,
     endDate date,
-    result varchar(255) not null,
+    result varchar(255),
     primary key (patientId,doctorId,startDate),
     foreign key (patientId) references Patient(uniqueId),
     foreign key (doctorId) references Worker(workerId),
