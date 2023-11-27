@@ -39,7 +39,7 @@ create table SymptomPatient (
     check(endDate is null or endDate >= startDate),
     foreign key (patientNumber) references Patient(uniqueId),
     foreign key (symptomId) references Symptom(id),
-    primary key (PatientNumber,startDate,sympsymptomsymptompatienttomId)
+    primary key (PatientNumber,startDate,symptomId)
 );
 
 create table Worker (
