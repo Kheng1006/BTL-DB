@@ -38,3 +38,5 @@ if (isset($_POST['Username']) && isset($_POST['Password'])) {
 	header("Location: register.php");
 	exit();
 }
+
+$con->close();

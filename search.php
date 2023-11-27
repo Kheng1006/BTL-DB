@@ -1,3 +1,7 @@
+<?php
+    session_start();
+?>
+
 <!DOCTYPE html>
 <!-- This site was created in Webflow. https://www.webflow.com --><!-- Last Published: Sat Oct 14 2023 07:59:48 GMT+0000 (Coordinated Universal Time) -->
 <html data-wf-domain="dos-groovy-site-815b31.webflow.io" data-wf-page="652a49b013ed5242e0b913a0"
@@ -28,7 +32,85 @@
     <meta content="width=device-width, initial-scale=1" name="viewport" />
     <meta content="Webflow" name="generator" />
     
-    
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        h2, h3 {
+            color: #333;
+        }
+
+        form {
+            max-width: 400px;
+            margin: 20px auto;
+            padding: 15px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #555;
+        }
+
+        input[type="text"], select, input[type="submit"] {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+        }
+
+        input[type="submit"] {
+            background-color: #4caf50;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        li {
+            background-color: #fff;
+            margin-bottom: 10px;
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+        }
+
+        li:hover {
+            background-color: #f0f0f0;
+        }
+
+        table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #4caf50;
+            color: #fff;
+        }
+    </style>
     
     
     <link href="style.css" rel="stylesheet" type="text/css" />
@@ -243,6 +325,84 @@
             <div class="sidebar-spacer"></div>
             <div class="dashboard-content">
                 <div class="dashboard-main-content">
+                    <?php
+                        // include "config.php";
+                    // Sample user data
+                    $users = array(
+                        array("id" => 1, "username" => "john doe", "email" => "john@example.com"),
+                        array("id" => 2, "username" => "jane smith", "email" => "jane@example.com"),
+                        array("id" => 3, "username" => "bob jones", "email" => "bob@example.com"),
+                        array("id" => 4, "username" => "john doe", "email" => "john@example.com"),
+                        array("id" => 5, "username" => "jake reece", "email" => "jane@example.com"),
+                        array("id" => 6, "username" => "harry potter", "email" => "bob@example.com"),
+                    );
+
+                    // Function to display users
+                    function displayUsers($users)
+                    {
+                        echo '<table border="1">';
+                        echo '<tr>';
+                        echo '<th>ID</th>';
+                        echo '<th>Username</th>';
+                        echo '<th>Email</th>';
+                        echo '</tr>';
+
+                        foreach ($users as $user) {
+                            echo '<tr>';
+                            echo '<td>' . $user['id'] . '</td>';
+                            echo '<td>' . $user['username'] . '</td>';
+                            echo '<td>' . $user['email'] . '</td>';
+                            echo '</tr>';
+                        }
+
+                        echo '</table>';
+                    }
+                    ?>
+
+                    <h2>User Search</h2>
+
+                    <form method="post" action="">
+                        <label for="search">Search:</label>
+                        <input type="text" name="search" id="search" placeholder="Enter ID or Username">
+
+                        <label for="searchType">Search by:</label>
+                        <select name="searchType" id="searchType">
+                            <option value="id">ID</option>
+                            <option value="username">Username</option>
+                        </select>
+
+                        <input type="submit" value="Search">
+                    </form>
+
+                    <?php
+                    // Handle form submission
+                    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+                        // Get search term and search type
+                        $searchTerm = $_POST['search'];
+                        $searchType = $_POST['searchType'];
+                        
+
+                        
+                        // Filter users based on ID or username
+                        $filteredUsers = array_filter($users, function ($user) use ($searchTerm, $searchType) {
+                            if ($searchType === 'id') {
+                                return $user['id'] == $searchTerm;
+                            } elseif ($searchType === 'username') {
+                                return stripos($user['username'], $searchTerm) !== false;
+                            }
+                            return false;
+                        });
+
+                        // Display filtered users
+                        echo '<h3>Search Results:</h3>';
+                        if (empty($filteredUsers)) {
+                            echo '<p>No matching users found.</p>';
+                        } else {
+                            displayUsers($filteredUsers);
+                        }
+                        
+                    }
+                    ?>
                     
                 </div>
 
