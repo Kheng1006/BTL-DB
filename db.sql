@@ -26,20 +26,20 @@ create table TestingRecord (
     foreign key (patientId) references Patient(uniqueId),
 	index idx_patient (patientId,testDate)
 );
-create table Symtom (
+create table Symptom (
 	id int primary key,
-    symtomName varchar(50) not null,
+    symptomName varchar(50) not null,
     seriousness bool not null
 );
-create table SymtomPatient (
+create table SymptomPatient (
 	patientNumber int not null,
-    symtomId int not null,
+    symptomId int not null,
     startDate date not null,
     endDate date,
     check(endDate is null or endDate >= startDate),
     foreign key (patientNumber) references Patient(uniqueId),
-    foreign key (symtomId) references Symtom(id),
-    primary key (PatientNumber,startDate,symtomId)
+    foreign key (symptomId) references Symptom(id),
+    primary key (PatientNumber,startDate,sympsymptomsymptompatienttomId)
 );
 
 create table Worker (
@@ -151,3 +151,4 @@ create table TakingCare (
     primary key (patientId,startDate),
     index idx_nurseId (nurseId)
 );
+
