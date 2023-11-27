@@ -326,82 +326,71 @@
             <div class="dashboard-content">
                 <div class="dashboard-main-content">
                     <?php
-                        // include "config.php";
-                    // Sample user data
-                    $users = array(
-                        array("id" => 1, "username" => "john doe", "email" => "john@example.com"),
-                        array("id" => 2, "username" => "jane smith", "email" => "jane@example.com"),
-                        array("id" => 3, "username" => "bob jones", "email" => "bob@example.com"),
-                        array("id" => 4, "username" => "john doe", "email" => "john@example.com"),
-                        array("id" => 5, "username" => "jake reece", "email" => "jane@example.com"),
-                        array("id" => 6, "username" => "harry potter", "email" => "bob@example.com"),
-                    );
-
-                    // Function to display users
-                    function displayUsers($users)
-                    {
-                        echo '<table border="1">';
-                        echo '<tr>';
-                        echo '<th>ID</th>';
-                        echo '<th>Username</th>';
-                        echo '<th>Email</th>';
-                        echo '</tr>';
-
-                        foreach ($users as $user) {
-                            echo '<tr>';
-                            echo '<td>' . $user['id'] . '</td>';
-                            echo '<td>' . $user['username'] . '</td>';
-                            echo '<td>' . $user['email'] . '</td>';
-                            echo '</tr>';
-                        }
-
-                        echo '</table>';
-                    }
+                        include "config.php";
                     ?>
+                        <h2>Patient Search</h2>
 
-                    <h2>User Search</h2>
-
-                    <form method="post" action="">
-                        <label for="search">Search:</label>
-                        <input type="text" name="search" id="search" placeholder="Enter ID or Username">
-
-                        <label for="searchType">Search by:</label>
-                        <select name="searchType" id="searchType">
-                            <option value="id">ID</option>
-                            <option value="username">Username</option>
-                        </select>
-
-                        <input type="submit" value="Search">
-                    </form>
-
-                    <?php
-                    // Handle form submission
-                    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-                        // Get search term and search type
-                        $searchTerm = $_POST['search'];
-                        $searchType = $_POST['searchType'];
+                        <form method="post" action="">
+                            <label for="search">Search:</label>
+                            <input type="text" name="search" id="search" placeholder="Enter ID or Name">
                         
-
+                            <label for="searchType">Search by:</label>
+                            <select name="searchType" id="searchType">
+                                <option value="id">ID</option>
+                                <option value="name">Name</option>
+                            </select>
                         
-                        // Filter users based on ID or username
-                        $filteredUsers = array_filter($users, function ($user) use ($searchTerm, $searchType) {
-                            if ($searchType === 'id') {
-                                return $user['id'] == $searchTerm;
-                            } elseif ($searchType === 'username') {
-                                return stripos($user['username'], $searchTerm) !== false;
+                            <input type="submit" value="Search">
+                        </form>
+                        
+                        <?php
+                        // Handle form submission
+                        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+                            // Get search term and search type
+                            $searchTerm = $_POST['search'];
+                            $searchType = $_POST['searchType'];
+
+                            if($searchType === 'id'){
+                                $sql = "SELECT fName, lName, phone, comorbitidies FROM patient WHERE uniqueId='$searchTerm'";
+	                            $result = mysqli_query($con, $sql);
+                            } else if($searchType === 'name'){
+                                $nameParts = explode(" ", $searchTerm);
+
+                                if (count($nameParts) === 2) {
+                                    $firstName = $nameParts[0];
+                                    $lastName = $nameParts[1];
+
+                                    $sql = "SELECT fName, lName, phone, comorbitidies FROM patient WHERE fName='$firstName' AND lName='$lastName'";
+	                                $result = mysqli_query($con, $sql);
+                                } else {
+                                    echo "Invalid full name format";
+                                }
                             }
-                            return false;
-                        });
-
-                        // Display filtered users
-                        echo '<h3>Search Results:</h3>';
-                        if (empty($filteredUsers)) {
-                            echo '<p>No matching users found.</p>';
-                        } else {
-                            displayUsers($filteredUsers);
+                            // Display filtered patients
+                            echo '<h3>Search Results:</h3>';
+                            if ($result->num_rows === 0) {
+                                echo '<p>No matching patients found.</p>';
+                            } else {
+                                echo '<table border="1">';
+                                echo '<tr>';
+                                echo '<th>Name</th>';
+                                echo '<th>Phone Number</th>';
+                                echo '<th>Comorbidities</th>';
+                                echo '</tr>';
+                        
+                                while ($row = $result->fetch_assoc()) {
+                                    echo '<tr>';
+                                    echo '<td>' . $row['fName'] . ' ' . $row['lName'] . '</td>';
+                                    echo '<td>' . $row['phone'] . '</td>';
+                                    echo '<td>' . $row['comorbitidies'] . '</td>';
+                                    echo '</tr>';
+                                }
+                        
+                                echo '</table>';
+                            }
+                    
                         }
                         
-                    }
                     ?>
                     
                 </div>
