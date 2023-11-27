@@ -89,7 +89,8 @@ create table Room (
     building varchar(255) not null,
     floorNumber int not null,
     roomType varchar(20) not null,
-    capacity int not null,
+    capacity int not null check (capacity>0),
+    currentCapacity int not null check (currentCapacity>=0),
     foreign key (building) references Building(buildingName),
     CONSTRAINT PK_Room PRIMARY KEY (roomNumber,building)
 );
