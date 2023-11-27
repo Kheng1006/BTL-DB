@@ -82,7 +82,7 @@ create table Admission (
     index idx_admission (patientNumber,moveDate)
 );
 create table Building (
-	buildingName varchar(255) primary key,
+	buildingName varchar(10) primary key,
 	floors int not null,
     rooms int not null
 );
@@ -134,6 +134,8 @@ create table Prescription  (
     doctorId int not null,
     mediCode int not null,
     startDate date not null,
+    foreign key (patientId) references Patient(uniqueId),
+    foreign key (doctorId) references Worker(workerId),
     foreign key (mediCode) references Medication(medicationCode),
     primary key (patientId,doctorId,startDate,mediCode)
 );
@@ -149,5 +151,3 @@ create table TakingCare (
     primary key (patientId,startDate),
     index idx_nurseId (nurseId)
 );
-
-

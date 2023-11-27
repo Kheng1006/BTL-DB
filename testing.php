@@ -332,13 +332,7 @@
 
                         <form method="post" action="">
                             <label for="search">Search:</label>
-                            <input type="text" name="search" id="search" placeholder="Enter ID or Name">
-                        
-                            <label for="searchType">Search by:</label>
-                            <select name="searchType" id="searchType">
-                                <option value="id">ID</option>
-                                <option value="name">Name</option>
-                            </select>
+                            <input type="text" name="search" id="search" placeholder="Enter ID">
                         
                             <input type="submit" value="Search">
                         </form>
@@ -348,24 +342,9 @@
                         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                             // Get search term and search type
                             $searchTerm = $_POST['search'];
-                            $searchType = $_POST['searchType'];
 
-                            if($searchType === 'id'){
-                                $sql = "SELECT fName, lName, phone, comorbitidies FROM patient WHERE uniqueId='$searchTerm'";
-	                            $result = mysqli_query($con, $sql);
-                            } else if($searchType === 'name'){
-                                $nameParts = explode(" ", $searchTerm);
-
-                                if (count($nameParts) === 2) {
-                                    $firstName = $nameParts[0];
-                                    $lastName = $nameParts[1];
-
-                                    $sql = "SELECT fName, lName, phone, comorbitidies FROM patient WHERE fName='$firstName' AND lName='$lastName'";
-	                                $result = mysqli_query($con, $sql);
-                                } else {
-                                    echo "Invalid full name format";
-                                }
-                            }
+                            $sql = "SELECT fName, lName, phone, comorbitidies FROM patient WHERE uniqueId='$searchTerm'";
+                            $result = mysqli_query($con, $sql);
                             // Display filtered patients
                             echo '<h3>Search Results:</h3>';
                             if ($result->num_rows === 0) {
