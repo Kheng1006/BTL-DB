@@ -20,7 +20,7 @@ VALUES
   (6, '2022-2-19', false, null, true, 12, 0.98, 30);
 
 -- Symptoms
-INSERT INTO Symtom (id, symtomName, seriousness)
+INSERT INTO Symptom (id, symptomName, seriousness)
 VALUES
   (1, 'Fever', true),
   (2, 'Cough', false),
@@ -31,7 +31,7 @@ VALUES
 
 
 -- Symptoms for Patients
-INSERT INTO SymtomPatient (patientNumber, symtomId, startDate, endDate)
+INSERT INTO SymptomPatient (patientNumber, symptomId, startDate, endDate)
 VALUES
   (1, 1, '2023-11-15', null),
   (2, 3, '2023-11-16', '2023-11-20'),
