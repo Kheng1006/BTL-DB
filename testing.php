@@ -343,7 +343,10 @@
                             // Get search term and search type
                             $searchTerm = $_POST['search'];
 
-                            $sql = "SELECT fName, lName, phone, comorbitidies FROM patient WHERE uniqueId='$searchTerm'";
+                            $sql = "SELECT TR.*, P.fName, P.lName
+                                    FROM testingRecord TR
+                                    INNER JOIN patient P ON TR.patientId = P.uniqueId
+                                    WHERE TR.patientId ='$searchTerm'";
                             $result = mysqli_query($con, $sql);
                             // Display filtered patients
                             echo '<h3>Search Results:</h3>';
@@ -353,15 +356,27 @@
                                 echo '<table border="1">';
                                 echo '<tr>';
                                 echo '<th>Name</th>';
-                                echo '<th>Phone Number</th>';
-                                echo '<th>Comorbidities</th>';
+                                echo '<th>Test Number</th>';
+                                echo '<th>Test Date</th>';
+                                echo '<th>PCR Result</th>';
+                                echo '<th>PCR Cycle</th>';
+                                echo '<th>Quick Test Result</th>';
+                                echo '<th>Quick Test Cycle</th>';
+                                echo '<th>SPO2 Test Result</th>';
+                                echo '<th>Respiratory</th>';
                                 echo '</tr>';
                         
                                 while ($row = $result->fetch_assoc()) {
                                     echo '<tr>';
                                     echo '<td>' . $row['fName'] . ' ' . $row['lName'] . '</td>';
-                                    echo '<td>' . $row['phone'] . '</td>';
-                                    echo '<td>' . $row['comorbitidies'] . '</td>';
+                                    echo '<td>' . $row['testNumber'] . '</td>';
+                                    echo '<td>' . $row['testDate'] . '</td>';
+                                    echo '<td>' . $row['resultPCR'] . '</td>';
+                                    echo '<td>' . $row['cyclePCR'] . '</td>';
+                                    echo '<td>' . $row['resultQuick'] . '</td>';
+                                    echo '<td>' . $row['cycleQuick'] . '</td>';
+                                    echo '<td>' . $row['spO2'] . '</td>';
+                                    echo '<td>' . $row['respiratory'] . '</td>';
                                     echo '</tr>';
                                 }
                         
