@@ -1,4 +1,5 @@
 create database QUARANTINE_CAMP;
+use QUARANTINE_CAMP;
 create table Patient (
 	uniqueId int primary key,
     ssn int unique key,
@@ -26,20 +27,22 @@ create table TestingRecord (
     foreign key (patientId) references Patient(uniqueId),
 	index idx_patient (patientId,testDate)
 );
-create table SymtomPatient (
-	patientNumber int not null,
-    symtomId int not null,
-    startDate date not null,
-    endDate date check(endDate is null or endDate >= startDate),
-    foreign key (patientNumber) references Patient(uniqueId),
-    foreign key (symtomId) references Symtom(id),
-    primary key (PatientNumber,startDate,symtomId)
-);
 create table Symtom (
 	id int primary key,
     symtomName varchar(50) not null,
     seriousness bool not null
 );
+create table SymtomPatient (
+	patientNumber int not null,
+    symtomId int not null,
+    startDate date not null,
+    endDate date,
+    check(endDate is null or endDate >= startDate),
+    foreign key (patientNumber) references Patient(uniqueId),
+    foreign key (symtomId) references Symtom(id),
+    primary key (PatientNumber,startDate,symtomId)
+);
+
 create table Worker (
 	workerId int primary key,
     ssn int unique key,
@@ -90,6 +93,7 @@ create table RoomRecord (
     building varchar(10) not null,
     startDate date not null,
     endDate date,
+    check(endDate is null or endDate >= startDate),
     foreign key (patientId) references Patient(uniqueId),
     foreign key (roomNumber) references Room(roomNumber),
     foreign key(building) references Room(building),
