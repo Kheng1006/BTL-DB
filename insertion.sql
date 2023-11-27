@@ -184,7 +184,7 @@ INSERT INTO Treatment (patientId, doctorId, startDate, endDate, result)
 VALUES
   (7, 1, '2023-11-15', NULL, NULL);
   
-INSERT INTO SymtomPatient (patientNumber, symtomId, startDate, endDate)
+INSERT INTO SymptomPatient (patientNumber, symptomId, startDate, endDate)
 VALUES
   (7,6,'2023-11-15','2023-11-30');
   
