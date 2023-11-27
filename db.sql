@@ -82,7 +82,7 @@ create table Admission (
     index idx_admission (patientNumber,moveDate)
 );
 create table Building (
-	buildingName varchar(10) primary key,
+	buildingName varchar(255) primary key,
 	floors int not null,
     rooms int not null
 );
