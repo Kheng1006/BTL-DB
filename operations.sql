@@ -14,8 +14,8 @@ BEGIN
 		UPDATE Admission SET warningPatient = True WHERE patientNumber = NEW.patientId AND (moveDate<=NEW.testDate AND dischargeDate IS NULL);
         END IF;
 	ELSEIF (NEW.cyclePCR IS NOT NULL AND NEW.cyclePCR>30) or (NEW.cycleQuick IS NOT NULL AND NEW.cycleQuick>30) THEN
-		SELECT symtomId into clinicalSign
-        FROM SymtomPatient
+		SELECT symptomId into clinicalSign
+        FROM SymptomPatient
         WHERE patientNumber = NEW.patientId AND (endDate IS NOT NULL AND endDate<=NEW.testDate);
         IF clinicalSign is not null THEN
 		UPDATE Admission set dischargeDate = NEW.testDate WHERE admissionId=admission_id;
