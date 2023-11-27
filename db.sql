@@ -61,7 +61,9 @@ create table Specialty (
 create table Worker_Specialty (
 	workerId int not null,
     specialty int not null,
-    foreign key (workerId) references Worker(workerId)
+    foreign key (workerId) references Worker(workerId),
+    foreign key(specialty) references Specialty(id),
+    primary key (workerId,specialty)
 );
 create table Admission (
 	admissionId int primary key,
@@ -132,6 +134,7 @@ create table Prescription  (
     doctorId int not null,
     mediCode int not null,
     startDate date not null,
+    foreign key (mediCode) references Medication(medicationCode),
     primary key (patientId,doctorId,startDate,mediCode)
 );
 
