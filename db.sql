@@ -56,8 +56,12 @@ create table Worker (
     address varchar(255) not null
 );
 create table Specialty (
+	id int primary key,
+    specialtyName varchar(10) not null
+);
+create table Worker_Specialty (
 	workerId int not null,
-    specialty varchar(10) not null,
+    specialty int not null,
     foreign key (workerId) references Worker(workerId)
 );
 create table Admission (
@@ -70,6 +74,7 @@ create table Admission (
     -- note
     dischargeDate date,
     testNumber int,
+    check (dischargeDate is null or moveDate<=dischargeDate),
     foreign key (testNumber) references TestingRecord(testNumber),
     constraint PK_admissionRecord primary key (patientNumber,moveDate)
 );
