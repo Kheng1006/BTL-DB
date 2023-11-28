@@ -12,20 +12,26 @@ create table Patient (
     phone char(9) not null,
     address varchar(255) not null
 );
-
-create table TestingRecord (
-	patientId int not null,
-	testNumber int AUTO_INCREMENT primary key,
-    testDate date not null,
-    resultPCR bool,
-    cyclePCR int check(cyclePCR>=0 or cyclePCR is null),
-    resultQuick bool,
-    cycleQuick int check(cycleQuick>=0 or cycleQuick is null),
-    spO2 decimal(5,4) check(spO2>=0 and spO2<=1),
-    respiratory int check(respiratory>0),
-    foreign key (patientId) references Patient(uniqueId),
-	index idx_patient (patientId,testDate)
+CREATE TABLE TestingRecord (
+    patientId INT NOT NULL,
+    testNumber INT AUTO_INCREMENT PRIMARY KEY,
+    testDate DATE NOT NULL,
+    testType ENUM('PCR', 'Quick Test', 'SPO2', 'Respiratory Rate') NOT NULL,
+    result BOOLEAN,
+    testValue DECIMAL(5, 4),
+    CHECK (
+        (testType = 'PCR'  AND ((result IS TRUE AND testValue>=0 AND testValue = ROUND(testValue)) OR(RESULT IS FALSE AND testValue IS NULL)))
+        OR
+        (testType = 'Quick Test'  AND ((result IS TRUE AND testValue>=0 AND testValue = ROUND(testValue)) OR(RESULT IS FALSE AND testValue IS NULL)))
+        OR
+        (testType = 'SPO2' AND result IS NULL AND testValue>0 AND testValue<=1)
+        OR
+        (testType = 'Respiratory Rate' AND result IS NULL AND testValue>=0 AND testValue = ROUND(testValue))
+    ),
+    FOREIGN KEY (patientId) REFERENCES Patient(uniqueId),
+    INDEX idx_patient (patientId, testDate)
 );
+
 create table Symptom (
 	id int primary key,
     symptomName varchar(50) not null,
