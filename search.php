@@ -196,7 +196,7 @@
 
 
                         <!-- Paper Purchase -->
-                        <a href="historyAdmin.php" class="sidebar-dropdown-link" style="text-decoration: none;">
+                        <a href="add.php" class="sidebar-dropdown-link" style="text-decoration: none;">
                             <div data-hover="false" data-delay="0" data-w-id="8902ab60-ff18-1ad1-7b19-201b504196bd"
                                 class="dropdown-wrapper sidebar-dropdown w-dropdown">
                                 <div class="dropdown-toggle sidebar-dropdown ">
@@ -354,17 +354,10 @@
                                 $sql = "SELECT fName, lName, phone, comorbitidies FROM patient WHERE uniqueId='$searchTerm'";
 	                            $result = mysqli_query($con, $sql);
                             } else if($searchType === 'name'){
-                                $nameParts = explode(" ", $searchTerm);
-
-                                if (count($nameParts) === 2) {
-                                    $firstName = $nameParts[0];
-                                    $lastName = $nameParts[1];
-
-                                    $sql = "SELECT fName, lName, phone, comorbitidies FROM patient WHERE fName='$firstName' AND lName='$lastName'";
-	                                $result = mysqli_query($con, $sql);
-                                } else {
-                                    echo "Invalid full name format";
-                                }
+                                $column1 = "lName";
+                                $column2 = "fName";
+                                $sql = "SELECT fName, lName, phone, comorbitidies FROM patient WHERE CONCAT($column1, ' ', $column2) = '$searchTerm'";
+	                            $result = mysqli_query($con, $sql);
                             }
                             // Display filtered patients
                             echo '<h3>Search Results:</h3>';
@@ -380,7 +373,7 @@
                         
                                 while ($row = $result->fetch_assoc()) {
                                     echo '<tr>';
-                                    echo '<td>' . $row['fName'] . ' ' . $row['lName'] . '</td>';
+                                    echo '<td>' . $row['lName'] . ' ' . $row['fName'] . '</td>';
                                     echo '<td>' . $row['phone'] . '</td>';
                                     echo '<td>' . $row['comorbitidies'] . '</td>';
                                     echo '</tr>';

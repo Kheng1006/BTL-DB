@@ -31,6 +31,8 @@
     <meta content="summary_large_image" name="twitter:card" /> -->
     <meta content="width=device-width, initial-scale=1" name="viewport" />
     <meta content="Webflow" name="generator" />
+     
+    <link href="style.css" rel="stylesheet" type="text/css" />
     
     <style>
         body {
@@ -57,7 +59,7 @@
             display: block;
             margin-bottom: 8px;
             font-weight: bold;
-            color: #555;
+            color: #000;
         }
 
         input[type="text"], select, input[type="submit"] {
@@ -111,10 +113,6 @@
             color: #fff;
         }
     </style>
-    
-    
-    <link href="style.css" rel="stylesheet" type="text/css" />
-    
     <script type="text/javascript">
         !function (o, c) { var n = c.documentElement, t = " w-mod-";
         n.className += t + "js", ("ontouchstart" in o || o.DocumentTouch && c instanceof DocumentTouch) && (n.className += t + "touch") }(window, document);
@@ -328,61 +326,64 @@
                     <?php
                         include "config.php";
                     ?>
-                        <h2>Patient Search</h2>
+                    <h2>Add Patient</h2>
+                    <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
+                        <label for="ssn">SSN:</label>
+                        <input type="text" name="ssn" required><br>
 
-                        <form method="post" action="">
-                            <label for="search">Search:</label>
-                            <input type="text" name="search" id="search" placeholder="Enter ID">
-                        
-                            <input type="submit" value="Search">
-                        </form>
-                        
-                        <?php
-                        // Handle form submission
-                        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-                            // Get search term and search type
-                            $searchTerm = $_POST['search'];
+                        <label for="fName">First Name:</label>
+                        <input type="text" name="fName" required><br>
 
-                            $sql = "SELECT TR.*, P.fName, P.lName
-                                    FROM testingRecord TR
-                                    INNER JOIN patient P ON TR.patientId = P.uniqueId
-                                    WHERE TR.patientId ='$searchTerm'";
-                            $result = mysqli_query($con, $sql);
-                            // Display filtered patients
-                            echo '<h3>Search Results:</h3>';
-                            if ($result->num_rows === 0) {
-                                echo '<p>No matching patients found.</p>';
+                        <label for="lName">Last Name:</label>
+                        <input type="text" name="lName" required><br>
+
+                        <label for="bDate">Birth Date:</label>
+                        <input type="date" name="bDate" required><br>
+
+                        <label for="gender">Gender:</label>
+                        <select name="gender" required>
+                            <option value="F">Female</option>
+                            <option value="M">Male</option>
+                        </select><br>
+
+                        <label for="comorbidities">Comorbidities:</label>
+                        <input type="text" name="comorbidities"><br>
+
+                        <label for="highRisk">High Risk:</label>
+                        <input type="checkbox" name="highRisk"><br>
+
+                        <label for="phone">Phone:</label>
+                        <input type="text" name="phone" required><br>
+
+                        <label for="address">Address:</label>
+                        <input type="text" name="address" required><br>
+
+                        <input type="submit" value="Add Patient">
+                    </form>
+                        
+                    <?php
+                        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+                            // Get data from the form
+                            $ssn = $_POST["ssn"];
+                            $fName = $_POST["fName"];
+                            $lName = $_POST["lName"];
+                            $bDate = $_POST["bDate"];
+                            $gender = $_POST["gender"];
+                            $comorbidities = $_POST["comorbidities"];
+                            $highRisk = isset($_POST["highRisk"]) ? 1 : 0;
+                            $phone = $_POST["phone"];
+                            $address = $_POST["address"];
+                        
+                            // SQL query to insert data into the Patient table
+                            $sql = "INSERT INTO patient (ssn, fName, lName, bDate, gender, comorbitidies, highrisk, phone, address) 
+                                    VALUES ('$ssn', '$fName', '$lName', '$bDate', '$gender', '$comorbidities', $highRisk, '$phone', '$address')";
+                        
+                            // Execute the query
+                            if ($con->query($sql) === TRUE) {
+                                echo "Patient record added successfully.";
                             } else {
-                                echo '<table border="1">';
-                                echo '<tr>';
-                                echo '<th>Name</th>';
-                                echo '<th>Test Number</th>';
-                                echo '<th>Test Date</th>';
-                                echo '<th>PCR Result</th>';
-                                echo '<th>PCR Cycle</th>';
-                                echo '<th>Quick Test Result</th>';
-                                echo '<th>Quick Test Cycle</th>';
-                                echo '<th>SPO2 Test Result</th>';
-                                echo '<th>Respiratory</th>';
-                                echo '</tr>';
-                        
-                                while ($row = $result->fetch_assoc()) {
-                                    echo '<tr>';
-                                    echo '<td>' . $row['lName'] . ' ' . $row['fName'] . '</td>';
-                                    echo '<td>' . $row['testNumber'] . '</td>';
-                                    echo '<td>' . $row['testDate'] . '</td>';
-                                    echo '<td>' . $row['resultPCR'] . '</td>';
-                                    echo '<td>' . $row['cyclePCR'] . '</td>';
-                                    echo '<td>' . $row['resultQuick'] . '</td>';
-                                    echo '<td>' . $row['cycleQuick'] . '</td>';
-                                    echo '<td>' . $row['spO2'] . '</td>';
-                                    echo '<td>' . $row['respiratory'] . '</td>';
-                                    echo '</tr>';
-                                }
-                        
-                                echo '</table>';
+                                echo "Error: " . $sql . "<br>" . $con->error;
                             }
-                    
                         }
                         
                     ?>

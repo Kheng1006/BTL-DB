@@ -81,7 +81,7 @@
                             </div>
                         </a>
                         <!-- Purchase Paper -->
-                        <a href="pricing.php" class="sidebar-dropdown-link" style="text-decoration: none;">
+                        <a href="add.php" class="sidebar-dropdown-link" style="text-decoration: none;">
                             <div data-hover="false" data-delay="0" data-w-id="8902ab60-ff18-1ad1-7b19-201b504196bd"
                                 class="dropdown-wrapper sidebar-dropdown w-dropdown">
                                 <div class="dropdown-toggle sidebar-dropdown ">
@@ -105,7 +105,7 @@
                             </div>
                         </a>
                         <!-- Making Report -->
-                        <a href="history.php" class="sidebar-dropdown-link" style="text-decoration: none;">
+                        <a href="report.php" class="sidebar-dropdown-link" style="text-decoration: none;">
                             <div data-hover="false" data-delay="0" data-w-id="8902ab60-ff18-1ad1-7b19-201b504196bd"
                                 class="dropdown-wrapper sidebar-dropdown w-dropdown">
                                 <div class="dropdown-toggle sidebar-dropdown ">
@@ -440,7 +440,7 @@
                                             <div class="text-300 medium color-accent-1">View page</div>
                                         </div>
                                     </a><a id="w-node-_09a3907e-db4a-6ca5-b943-a8a4f5f0e60e-e0b912c8"
-                                        data-w-id="09a3907e-db4a-6ca5-b943-a8a4f5f0e60e" href="pricing.php"
+                                        data-w-id="09a3907e-db4a-6ca5-b943-a8a4f5f0e60e" href="add.php"
                                         class="card sales-home-page w-inline-block">
                                         <div class="position-relative---z-index-1 overflow-hidden"><img
                                                 src="./images/placeholder.png"
@@ -464,7 +464,7 @@
                                             <div class="text-300 medium color-accent-1">View page</div>
                                         </div>
                                     </a><a id="w-node-d35e68b7-ebbf-f6e8-59d5-aa67646aac86-e0b912c8"
-                                        data-w-id="d35e68b7-ebbf-f6e8-59d5-aa67646aac86" href="history.php"
+                                        data-w-id="d35e68b7-ebbf-f6e8-59d5-aa67646aac86" href="report.php"
                                         class="card sales-home-page w-inline-block">
                                         <div class="position-relative---z-index-1 overflow-hidden"><img
                                                 src="./images/placeholder.png"
