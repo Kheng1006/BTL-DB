@@ -8,12 +8,12 @@ BEGIN
 	DECLARE admission_id int;
     SELECT admissionId INTO admission_id
 	FROM Admission 
-	WHERE patientNumber = New.patientId And moveDate<=NEW.testDate;
-	IF (NEW.spO2 IS NOT NULL AND NEW.spO2<0.96) AND (NEW.respiratory IS NOT NULL AND NEW.respiratory>20) THEN
+	WHERE patientNumber = New.patientId  And moveDate<=NEW.testDate;
+	IF (NEW.testType= 'SP02' AND NEW.testValue IS NOT NULL AND NEW.testValue<0.96) AND (NEW.testType='Respiratory Rate' AND NEW.testValue IS NOT NULL AND NEW.testValue>20) THEN
         IF admission_id is not null THEN
 		UPDATE Admission SET warningPatient = True WHERE patientNumber = NEW.patientId AND (moveDate<=NEW.testDate AND dischargeDate IS NULL);
         END IF;
-	ELSEIF (NEW.cyclePCR IS NOT NULL AND NEW.cyclePCR>30) or (NEW.cycleQuick IS NOT NULL AND NEW.cycleQuick>30) THEN
+	ELSEIF (NEW.testType= 'PCR'AND NEW.testValue IS NOT NULL AND NEW.testValue>30) or (NEW.testType= 'Quick Test' AND NEW.testValue IS NOT NULL AND NEW.testValue>30) THEN
 		SELECT symptomId into clinicalSign
         FROM SymptomPatient
         WHERE patientNumber = NEW.patientId AND (endDate IS NOT NULL AND endDate<=NEW.testDate);
@@ -63,6 +63,33 @@ END;
 //
 DELIMITER ;
 
+DELIMITER //
+
+CREATE TRIGGER test_when_admit_trigger
+BEFORE INSERT ON TestWhenAdmit
+FOR EACH ROW
+BEGIN
+    DECLARE patientIdTest INT;
+    DECLARE patientIdAdmission INT;
+
+    -- Get the patient ID associated with the test in TestingRecord
+    SELECT patientId INTO patientIdTest
+    FROM TestingRecord
+    WHERE testNumber = NEW.testNumber;
+
+    -- Get the patient ID associated with the admission in Admission
+    SELECT patientNumber INTO patientIdAdmission
+    FROM Admission
+    WHERE admissionId = NEW.admissionId;
+
+    -- Check if the patient IDs match
+    IF patientIdTest IS NULL OR patientIdAdmission IS NULL OR patientIdTest != patientIdAdmission THEN
+        SIGNAL SQLSTATE '45000'
+        SET MESSAGE_TEXT = 'Error: The TestingRecord and Admission do not belong to the same patient.';
+    END IF;
+END //
+
+DELIMITER ;
 
 
 DELIMITER //
@@ -137,9 +164,3 @@ BEGIN
 END //
 
 DELIMITER ;
-
-
-
-
-
-
