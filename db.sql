@@ -9,7 +9,7 @@ create table Patient (
     gender ENUM('F','M') not null,
     comorbitidies varchar(255) not null,
     highrisk bool,
-    phone char(9) not null,
+    phone char(10) not null,
     address varchar(255) not null
 );
 
@@ -18,10 +18,12 @@ create table TestingRecord (
 	testNumber int AUTO_INCREMENT primary key,
     testDate date not null,
     resultPCR bool,
-    cyclePCR int check(cyclePCR>=0 or cyclePCR is null),
-    resultQuick bool,
-    cycleQuick int check(cycleQuick>=0 or cycleQuick is null),
+    cyclePCR int,
+    check ((resultPCR is false and cyclePCR is null)or(resultPCR is True and cyclePCR>=0)or(resultPCR is null and cyclePCR is null)),
     spO2 decimal(5,4) check(spO2>=0 and spO2<=1),
+    resultQuick bool,
+    cycleQuick int,
+    check ((resultQuick is false and cycleQuick is null)or(resultQuick is True and cycleQuick>=0)or(resultQuick is null and cycleQuick is null)),
     respiratory int check(respiratory>0),
     foreign key (patientId) references Patient(uniqueId),
 	index idx_patient (patientId,testDate)
