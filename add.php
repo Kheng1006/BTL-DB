@@ -35,15 +35,8 @@
     <link href="style.css" rel="stylesheet" type="text/css" />
     
     <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            background-color: #f4f4f4;
-            margin: 0;
-            padding: 0;
-        }
-
         h2, h3 {
-            color: #333;
+            color: #ffffff;
         }
 
         form {
@@ -328,6 +321,9 @@
                     ?>
                     <h2>Add Patient</h2>
                     <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
+                        <label for="id">ID:</label>
+                        <input type="text" name="id" required><br>
+
                         <label for="ssn">SSN:</label>
                         <input type="text" name="ssn" required><br>
 
@@ -364,6 +360,7 @@
                     <?php
                         if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             // Get data from the form
+                            $id = $_POST["id"];
                             $ssn = $_POST["ssn"];
                             $fName = $_POST["fName"];
                             $lName = $_POST["lName"];
@@ -375,8 +372,8 @@
                             $address = $_POST["address"];
                         
                             // SQL query to insert data into the Patient table
-                            $sql = "INSERT INTO patient (ssn, fName, lName, bDate, gender, comorbitidies, highrisk, phone, address) 
-                                    VALUES ('$ssn', '$fName', '$lName', '$bDate', '$gender', '$comorbidities', $highRisk, '$phone', '$address')";
+                            $sql = "INSERT INTO patient (uniqueID, ssn, fName, lName, bDate, gender, comorbitidies, highrisk, phone, address) 
+                                    VALUES ('$id', '$ssn', '$fName', '$lName', '$bDate', '$gender', '$comorbidities', $highRisk, '$phone', '$address')";
                         
                             // Execute the query
                             if ($con->query($sql) === TRUE) {
