@@ -25,7 +25,7 @@ BEGIN
         ) THEN
             -- If yes, set the warning for the admission
             IF admission_id IS NOT NULL THEN
-                UPDATE Admission SET warningPatient = TRUE WHERE admissionId = admission_id AND dischargeDate IS NULL;
+                UPDATE Admission SET warningPatient = True WHERE patientNumber = NEW.patientId AND (moveDate<=NEW.testDate AND dischargeDate IS NULL);
             END IF;
         END IF;
     ELSEIF NEW.testType = 'Respiratory Rate' AND NEW.testValue > 20 THEN
@@ -40,7 +40,7 @@ BEGIN
         ) THEN
             -- If yes, set the warning for the admission
             IF admission_id IS NOT NULL THEN
-                UPDATE Admission SET warningPatient = TRUE WHERE admissionId = admission_id AND dischargeDate IS NULL;
+                UPDATE Admission SET warningPatient = True WHERE patientNumber = NEW.patientId AND (moveDate<=NEW.testDate AND dischargeDate IS NULL);
             END IF;
         END IF;
     ELSEIF (NEW.testType = 'PCR' AND NEW.testValue > 30) OR (NEW.testType = 'Quick Test' AND NEW.testValue > 30) THEN
@@ -50,12 +50,11 @@ BEGIN
         WHERE patientNumber = NEW.patientId AND endDate IS NOT NULL AND endDate <= NEW.testDate;
 
         -- Check if there is another test record for the same patient on the same day with opposite condition
-        IF clinicalSign IS NOT NULL AND admission_id IS NOT NULL THEN
-            UPDATE Admission SET dischargeDate = NEW.testDate WHERE admissionId = admission_id AND dischargeDate IS NULL;
+        IF clinicalSign IS NOT NULL THEN
+           UPDATE Admission set dischargeDate = NEW.testDate WHERE admissionId=admission_id;
         END IF;
     END IF;
 END;
-
 //
 
 DELIMITER ;
