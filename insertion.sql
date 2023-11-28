@@ -1,23 +1,23 @@
+-- Insert into Patient table
 use QUARANTINE_CAMP;
 INSERT INTO Patient (uniqueId, ssn, fName, lName, bDate, gender, comorbitidies, highrisk, phone, address)
 VALUES
-  (1, 123456789, 'Ngoc', 'Tran', '1990-05-15', 'F', '', 0, '0987654321', '123 Nguyen Van Street, Hanoi'),
-  (2, 987654321, 'Duc', 'Nguyen', '1985-08-22', 'M', 'Asthma', 1, '0123456178', '456 Le Loi Street, Ho Chi Minh City'),
-  (3, 555555555, 'Lan', 'Pham', '1998-12-10', 'F', 'Diabetes', 1, '0901234156', '789 Truong Dinh Street, Da Nang'),
-  (4, 777777777, 'Minh', 'Le', '1973-03-28', 'M', 'Hypertension', 1, '0954312109', '101 Tran Hung Dao Street, Hanoi'),
-  (5, 999999999, 'Anh', 'Vu', '1982-06-17', 'M', '', 0, '0976541321', '222 Nguyen Hue Street, Ho Chi Minh City'),
-  (6, 029484938, 'A', 'Nguyen Van', '1988-06-29', 'M', '', 0, '0941832489', '222 Nguyen Xien Street, Ho Chi Minh City');
+  (1, 123456789, 'Ngoc', 'Tran', '1990-05-15', 'F', '', 0, '098765432', '123 Nguyen Van Street, Hanoi'),
+  (2, 987654321, 'Duc', 'Nguyen', '1985-08-22', 'M', 'Asthma', 1, '012345678', '456 Le Loi Street, Ho Chi Minh City'),
+  (3, 555555555, 'Lan', 'Pham', '1998-12-10', 'F', 'Diabetes', 1, '090123456', '789 Truong Dinh Street, Da Nang'),
+  (4, 777777777, 'Minh', 'Le', '1973-03-28', 'M', 'Hypertension', 1, '095432109', '101 Tran Hung Dao Street, Hanoi'),
+  (5, 999999999, 'Anh', 'Vu', '1982-06-17', 'M', '', 0, '097654321', '222 Nguyen Hue Street, Ho Chi Minh City'),
+  (6, 029484938, 'A', 'Nguyen Van', '1988-06-29', 'M', '', 0, '094832489', '222 Nguyen Xien Street, Ho Chi Minh City');
 
 -- Testing Records
-INSERT INTO TestingRecord (patientId, testDate, testType, result, testValue)
+INSERT INTO TestingRecord (patientId, testDate, resultPCR, cyclePCR, resultQuick, cycleQuick, spO2, respiratory)
 VALUES
-  (1, '2022-11-15', 'PCR', true, 20),
-  (2, '2022-11-16', 'PCR', true, 25),
-  (3, '2022-11-17', 'Quick Test', false, null),
-  (4, '2022-11-18', 'PCR', 1, 18),
-  (5, '2022-11-19', 'Quick Test', false, null),
-  (6, '2022-02-19', 'SPO2', null, 0.98),
-  (1, '2022-02-20', 'Respiratory Rate', null, 15);
+  (1, '2022-11-15', true, 20, false, null, 0.98, 18),
+  (2, '2022-11-16', true, 25, true, 10, 0.96, 22),
+  (3, '2022-11-17', false, null, true, 15, 0.97, 20),
+  (4, '2022-11-18', true, 18, false, null, 0.99, 16),
+  (5, '2022-11-19', false, null, true, 12, 0.95, 25),
+  (6, '2022-2-19', false, null, true, 12, 0.98, 30);
 
 -- Symptoms
 INSERT INTO Symptom (id, symptomName, seriousness)
@@ -85,14 +85,14 @@ VALUES
   
 
 -- Admitting Patients
-INSERT INTO Admission (admissionId, patientNumber, workerId, warningPatient, moveDate, moveFrom, dischargeDate)
+INSERT INTO Admission (admissionId, patientNumber, workerId, warningPatient, moveDate, moveFrom, dischargeDate, testNumber)
 VALUES
-  (1, 1, 8, false, '2023-11-15', 'City Hospital', NULL),
-  (2, 2, 9, true, '2023-11-16', 'Home', NULL),
-  (3, 3, 10, false, '2023-11-17', 'City Camp', NULL),
-  (4, 4, 8, true, '2023-11-18', 'Home', NULL),
-  (5, 5, 9, false, '2023-11-19', 'Home', NULL),
-  (6, 6, 4, false, '2023-11-19', 'Home', NULL);
+  (1, 1, 8, false, '2023-11-15', 'City Hospital', NULL, 1),
+  (2, 2, 9, true, '2023-11-16', 'Home', NULL, 2),
+  (3, 3, 10, false, '2023-11-17', 'City Camp', NULL, 3),
+  (4, 4, 8, true, '2023-11-18', 'Home', NULL, 4),
+  (5, 5, 9, false, '2023-11-19', 'Home', NULL, 5),
+  (6, 6, 4, false, '2023-11-19', 'Home', NULL, 6);
 
 -- Taking Care of Patients by Nurses
 INSERT INTO TakingCare (patientId, nurseId, startDate, endDate)
@@ -161,11 +161,11 @@ VALUES
 
 INSERT INTO Patient (uniqueId, ssn, fName, lName, bDate, gender, comorbitidies, highrisk, phone, address)
 VALUES
-  (7, 957383894, 'A', 'Nguyen Van', '1990-05-15', 'F', '', 0, '0983174657', '123 Nguyen Thi Dinh, Hanoi');
+  (7, 957383894, 'A', 'Nguyen Van', '1990-05-15', 'F', '', 0, '098374657', '123 Nguyen Thi Dinh, Hanoi');
 
-INSERT INTO Admission (admissionId, patientNumber, workerId, warningPatient, moveDate, moveFrom, dischargeDate)
+INSERT INTO Admission (admissionId, patientNumber, workerId, warningPatient, moveDate, moveFrom, dischargeDate, testNumber)
 VALUES
-  (7, 7, 4, false, '2023-11-15', 'City Hospital', NULL);
+  (7, 7, 4, false, '2023-11-15', 'City Hospital', NULL, NULL);
 
 -- THIS is used to check capacity constraint
 INSERT INTO RoomRecord (patientId, roomNumber, building, startDate, endDate)
@@ -202,6 +202,4 @@ INSERT INTO TestingRecord (patientId, testDate, resultPCR, cyclePCR, resultQuick
 VALUES
   (7, '2023-12-30', false, null, true, 32, 0.98, 20);
 
-INSERT INTO TestWhenAdmit (testNumber,admissionId)
-VALUES
- (1,1)
+Select * from Admission;
