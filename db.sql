@@ -74,7 +74,7 @@ create table Admission (
     warningPatient bool,
     foreign key (patientNumber) references Patient(uniqueId),
     foreign key (workerId) references Worker(workerId),
-    moveDate date not null,
+    moveDate date DEFAULT (CURRENT_DATE),
     moveFrom varchar(255) not null,
     -- note
     dischargeDate date,
