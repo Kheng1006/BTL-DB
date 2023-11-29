@@ -16,7 +16,7 @@ create table Patient (
 create table TestingRecord (
 	patientId int not null,
 	testNumber int AUTO_INCREMENT primary key,
-    testDate date not null,
+    testDate DATE DEFAULT (CURRENT_DATE),
     resultPCR bool,
     cyclePCR int,
     check ((resultPCR is false and cyclePCR is null)or(resultPCR is True and cyclePCR>=0)or(resultPCR is null and cyclePCR is null)),
