@@ -77,7 +77,7 @@ BEGIN
     UPDATE TestingRecord tr
     JOIN Admission a ON tr.patientId = a.patientNumber
     SET tr.resultPCR = TRUE,
-        tr.cyclePRC = NULL
+        tr.cyclePCR = NULL
     WHERE a.moveDate >= admissionDateThreshold;
 
     SELECT 'PCR tests updated successfully.' AS Message;
