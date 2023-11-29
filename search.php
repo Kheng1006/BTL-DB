@@ -9,7 +9,7 @@
 
 <head>
     <meta charset="utf-8" />
-    <title>HCMUT_SPSS</title>
+    <title>Quarantine Camp</title>
     <!-- <meta
         content="Take your startup to new heights with Dashdark X 🌑📱! Our Devlink Dark Mode Dashboard Webflow Template is the ultimate solution for stunning SaaS dashboards."
         name="description" />
@@ -147,7 +147,7 @@
                         aria-current="page"
                         class="sidebar-logo-link w-nav-brand w--current"
                     >
-                        <img src="./images/logobk.svg" loading="eager" alt="HCMUT - Logo" />
+                        <img src="./images/iconbk.svg" loading="eager" alt="HCMUT - Logo" />
                     </a>
                     
                     <div data-w-id="8902ab60-ff18-1ad1-7b19-201b504196b1" class="sidebar-collapsed-icon-btn-wrapper">

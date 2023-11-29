@@ -7,7 +7,7 @@
 
 <head>
     <meta charset="utf-8" />
-    <title>SPSS - Central Authentication Service</title>
+    <title>Quarantine Camp Central Authentication Service</title>
     <meta content="width=device-width, initial-scale=1" name="viewport" />
     <meta content="Webflow" name="generator" />
     <!-- <link href="loginStyle.css"

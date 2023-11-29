@@ -5,7 +5,7 @@
 
 <head>
     <meta charset="utf-8" />
-    <title>HCMUT_SPSS</title>
+    <title>Quarantine Camp</title>
     <meta
         content="Take your startup to new heights with Dashdark X 🌑📱! Our Devlink Dark Mode Dashboard Webflow Template is the ultimate solution for stunning SaaS dashboards."
         name="description" />
@@ -47,8 +47,9 @@
             data-duration="400" data-easing="ease" data-easing2="ease" role="banner" class="sidebar-wrapper w-nav">
             <div class="overflow-hidden">
                 <div class="sidebar-logo-section-container"><a href="index.php" aria-current="page"
-                        class="sidebar-logo-link w-nav-brand w--current"><img
-                            src="./images/logobk.svg"
+                        class="sidebar-logo-link w-nav-brand w--current">
+                        <img
+                            src="./images/iconbk.svg"
                             loading="eager" alt="" /></a>
                     <div data-w-id="8902ab60-ff18-1ad1-7b19-201b504196b1" class="sidebar-collapsed-icon-btn-wrapper">
                         <div class="sidebar-collapsed-icon-btn"><img
@@ -381,11 +382,12 @@
                     <div class="container-default w-container">
                         <div class="mg-bottom-140px">
                             <div class="text-center mg-bottom-48px">
-                                <div class="inner-container _764px center"><img
+                                <div class="inner-container _764px center">
+                                    <!-- <img
                                         src="./images/logobk.svg"
                                         loading="eager" style="opacity:0"
                                         data-w-id="1aef72c2-116c-c314-e494-12c842340a8e"
-                                        alt="" class="mg-bottom-8px"/>
+                                        alt="" class="mg-bottom-8px"/> -->
                                     <h1 data-w-id="8f1442fd-5729-fb94-cef7-96c4c4b9f370" style="opacity:0"
                                         class="display-2">Start managing your quarantine camp database</h1>
                                     <!-- <p data-w-id="10e46652-5b20-ff4a-1583-24819cbe6c9e" style="opacity:0"
@@ -427,11 +429,7 @@
                                     <a id="w-node-fb514822-0e5c-02dc-94d8-e2e50efe10fb-e0b912c8"
                                         data-w-id="fb514822-0e5c-02dc-94d8-e2e50efe10fb" href="search.php"
                                         class="card sales-home-page w-inline-block">
-                                        <div class="position-relative---z-index-1 overflow-hidden"><img
-                                                src="./images/placeholder.png"
-                                                alt=""
-                                                sizes="(max-width: 479px) 93vw, (max-width: 991px) 95vw, (max-width: 1439px) 24vw, 334.328125px"
-                                                class="card-sales-home-image" /></div>
+                                        
                                         <!-- Use in img
                                             srcset="https://assets-global.website-files.com/652a49b013ed5242e0b91280/652a49b013ed5242e0b9132f_dashdark-x-reports-page-dashboard-webflow-template-p-500.png 500w, https://assets-global.website-files.com/652a49b013ed5242e0b91280/652a49b013ed5242e0b9132f_dashdark-x-reports-page-dashboard-webflow-template-p-800.png 800w, https://assets-global.website-files.com/652a49b013ed5242e0b91280/652a49b013ed5242e0b9132f_dashdark-x-reports-page-dashboard-webflow-template.png 1344w"
                                         -->
@@ -442,11 +440,7 @@
                                     </a><a id="w-node-_09a3907e-db4a-6ca5-b943-a8a4f5f0e60e-e0b912c8"
                                         data-w-id="09a3907e-db4a-6ca5-b943-a8a4f5f0e60e" href="add.php"
                                         class="card sales-home-page w-inline-block">
-                                        <div class="position-relative---z-index-1 overflow-hidden"><img
-                                                src="./images/placeholder.png"
-                                                alt=""
-                                                sizes="(max-width: 479px) 93vw, (max-width: 991px) 95vw, (max-width: 1439px) 24vw, 334.3359375px"
-                                                class="card-sales-home-image" /></div>
+                                        
                                         <div class="card-sales-home-content">
                                             <div class="text-400 medium">Adding Patient</div>
                                             <div class="text-300 medium color-accent-1">View page</div>
@@ -454,11 +448,7 @@
                                     </a><a id="w-node-d35e68b7-ebbf-f6e8-59d5-aa67646aac86-e0b912c8"
                                         data-w-id="d35e68b7-ebbf-f6e8-59d5-aa67646aac86" href="testing.php"
                                         class="card sales-home-page w-inline-block">
-                                        <div class="position-relative---z-index-1 overflow-hidden"><img
-                                                src="./images/placeholder.png"
-                                                alt=""
-                                                sizes="(max-width: 479px) 93vw, (max-width: 991px) 95vw, (max-width: 1439px) 24vw, 334.3359375px"
-                                                class="card-sales-home-image" /></div>
+                                        
                                         <div class="card-sales-home-content">
                                             <div class="text-400 medium">Testing Details</div>
                                             <div class="text-300 medium color-accent-1">View page</div>
@@ -466,11 +456,7 @@
                                     </a><a id="w-node-d35e68b7-ebbf-f6e8-59d5-aa67646aac86-e0b912c8"
                                         data-w-id="d35e68b7-ebbf-f6e8-59d5-aa67646aac86" href="report.php"
                                         class="card sales-home-page w-inline-block">
-                                        <div class="position-relative---z-index-1 overflow-hidden"><img
-                                                src="./images/placeholder.png"
-                                                alt=""
-                                                sizes="(max-width: 479px) 93vw, (max-width: 991px) 95vw, (max-width: 1439px) 24vw, 334.3359375px"
-                                                class="card-sales-home-image" /></div>
+                                        
                                         <div class="card-sales-home-content">
                                             <div class="text-400 medium">Making Report</div>
                                             <div class="text-300 medium color-accent-1">View page</div>
