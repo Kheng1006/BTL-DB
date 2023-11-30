@@ -349,37 +349,41 @@
                             // Get search term and search type
                             $searchTerm = $_POST['search'];
                             $searchType = $_POST['searchType'];
-
-                            if($searchType === 'id'){
-                                $sql = "SELECT fName, lName, phone, comorbitidies FROM patient WHERE uniqueId='$searchTerm'";
-	                            $result = mysqli_query($con, $sql);
-                            } else if($searchType === 'name'){
-                                $column1 = "lName";
-                                $column2 = "fName";
-                                $sql = "SELECT fName, lName, phone, comorbitidies FROM patient WHERE CONCAT($column1, ' ', $column2) = '$searchTerm'";
-	                            $result = mysqli_query($con, $sql);
+                            if(!validate_input($searchTerm)){
+                                echo '<div class="error-message">Error: Invalid input.</div>';
                             }
-                            // Display filtered patients
-                            echo '<h3>Search Results:</h3>';
-                            if ($result->num_rows === 0) {
-                                echo '<p>No matching patients found.</p>';
-                            } else {
-                                echo '<table border="1">';
-                                echo '<tr>';
-                                echo '<th>Name</th>';
-                                echo '<th>Phone Number</th>';
-                                echo '<th>Comorbidities</th>';
-                                echo '</tr>';
-                        
-                                while ($row = $result->fetch_assoc()) {
-                                    echo '<tr>';
-                                    echo '<td>' . $row['lName'] . ' ' . $row['fName'] . '</td>';
-                                    echo '<td>' . $row['phone'] . '</td>';
-                                    echo '<td>' . $row['comorbitidies'] . '</td>';
-                                    echo '</tr>';
+                            else{
+                                if($searchType === 'id'){
+                                    $sql = "SELECT fName, lName, phone, comorbitidies FROM patient WHERE uniqueId='$searchTerm'";
+                                    $result = mysqli_query($con, $sql);
+                                } else if($searchType === 'name'){
+                                    $column1 = "lName";
+                                    $column2 = "fName";
+                                    $sql = "SELECT fName, lName, phone, comorbitidies FROM patient WHERE CONCAT($column1, ' ', $column2) = '$searchTerm'";
+                                    $result = mysqli_query($con, $sql);
                                 }
-                        
-                                echo '</table>';
+                                // Display filtered patients
+                                echo '<h3>Search Results:</h3>';
+                                if ($result->num_rows === 0) {
+                                    echo '<p>No matching patients found.</p>';
+                                } else {
+                                    echo '<table border="1">';
+                                    echo '<tr>';
+                                    echo '<th>Name</th>';
+                                    echo '<th>Phone Number</th>';
+                                    echo '<th>Comorbidities</th>';
+                                    echo '</tr>';
+                            
+                                    while ($row = $result->fetch_assoc()) {
+                                        echo '<tr>';
+                                        echo '<td>' . $row['lName'] . ' ' . $row['fName'] . '</td>';
+                                        echo '<td>' . $row['phone'] . '</td>';
+                                        echo '<td>' . $row['comorbitidies'] . '</td>';
+                                        echo '</tr>';
+                                    }
+                            
+                                    echo '</table>';
+                                }
                             }
                     
                         }

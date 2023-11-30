@@ -5624,3 +5624,18 @@ figcaption {
     font-style: normal;
     font-display: swap;
 }
+
+.error {
+    background: #F2DEDE;
+    color: #A94442;
+    padding: 10px;
+    width: 95%;
+    border-radius: 5px;
+    margin: 20px auto;
+ }
+
+ .error-message {
+    color: #ff0000; /* Red color for the error message */
+    font-weight: bold;
+    margin: 10px 0;
+}

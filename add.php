@@ -317,7 +317,7 @@
             <div class="dashboard-content">
                 <div class="dashboard-main-content">
                     <?php
-                        include "config.php";
+                        include "config.php";                       
                     ?>
                     <h2>Add Patient</h2>
                     <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
@@ -370,19 +370,22 @@
                             $highRisk = isset($_POST["highRisk"]) ? 1 : 0;
                             $phone = $_POST["phone"];
                             $address = $_POST["address"];
-                        
-                            // SQL query to insert data into the Patient table
-                            $sql = "INSERT INTO patient (uniqueID, ssn, fName, lName, bDate, gender, comorbitidies, highrisk, phone, address) 
-                                    VALUES ('$id', '$ssn', '$fName', '$lName', '$bDate', '$gender', '$comorbidities', $highRisk, '$phone', '$address')";
-                        
-                            // Execute the query
-                            if ($con->query($sql) === TRUE) {
-                                echo "Patient record added successfully.";
-                            } else {
-                                echo "Error: " . $sql . "<br>" . $con->error;
-                            }
+                            if(validate_input($id) && validate_input($ssn) && validate_input($fName) && validate_input($lName) && validate_input($gender) && validate_input($comorbidities) &&
+                            validate_input($highRisk) && validate_input($phone) && validate_input($address)){
+                                // SQL query to insert data into the Patient table
+                                $sql = "INSERT INTO patient (uniqueID, ssn, fName, lName, bDate, gender, comorbitidies, highrisk, phone, address) 
+                                VALUES ('$id', '$ssn', '$fName', '$lName', '$bDate', '$gender', '$comorbidities', $highRisk, '$phone', '$address')";
+                    
+                                // Execute the query
+                                if ($con->query($sql) === TRUE) {
+                                    echo "Patient record added successfully.";
+                                } else {
+                                    echo "Error: " . $sql . "<br>" . $con->error;
+                                }
+                            }else{
+                                echo '<div class="error-message">Error: Invalid input.</div>';
+                            }    
                         }
-                        
                     ?>
                     
                 </div>
