@@ -16,14 +16,12 @@ create table Patient (
 create table TestingRecord (
 	patientId int not null,
 	testNumber int AUTO_INCREMENT primary key,
-    testDate DATE DEFAULT (CURRENT_DATE),
+    testDate date not null,
     resultPCR bool,
-    cyclePCR int,
-    check ((resultPCR is false and resultPCR is not null and cyclePCR is null)or(resultPCR is True and resultPCR is not null and cyclePCR is not null and cyclePCR>=0)or(resultPCR is null and cyclePCR is null)),
-    spO2 decimal(5,4) check(spO2>=0 and spO2<=1),
+    cyclePCR int check(cyclePCR>=0 or cyclePCR is null),
     resultQuick bool,
-    cycleQuick int,
-    check ((resultQuick is false and resultQuick is not null and cycleQuick is null)or(resultQuick is True and resultQuick is not null and cycleQuick is not null and cycleQuick>=0)or(resultQuick is null and cycleQuick is null)),
+    cycleQuick int check(cycleQuick>=0 or cycleQuick is null),
+    spO2 decimal(5,4) check(spO2>=0 and spO2<=1),
     respiratory int check(respiratory>0),
     foreign key (patientId) references Patient(uniqueId),
 	index idx_patient (patientId,testDate)
