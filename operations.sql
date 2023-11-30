@@ -380,3 +380,57 @@ BEGIN
 	) AS subquery;
 END // 
 DELIMITER ;
+
+
+
+DELIMITER //
+
+CREATE PROCEDURE measure_query_time()
+BEGIN
+    DECLARE i INT DEFAULT 0;
+    DECLARE start_time TIMESTAMP(6);
+    DECLARE end_time TIMESTAMP(6);
+
+	SET start_time = CURRENT_TIMESTAMP(6);
+    -- Your query
+   
+    Select * FROM TestingRecord WHERE (testDate BETWEEN '2021-01-01' AND '2022-01-01');
+
+
+    SET end_time = CURRENT_TIMESTAMP(6);
+
+    SELECT TIMEDIFF(end_time, start_time) AS total_time;
+END //
+
+DELIMITER ;
+
+
+DELIMITER //
+
+CREATE PROCEDURE InsertTestingRecords(IN repeat_count INT)
+BEGIN
+    DECLARE i INT DEFAULT 0;
+    DECLARE patient_id INT;
+
+    WHILE i < repeat_count DO
+        -- Assuming you have patient records to reference or generate patient_id
+        SET patient_id = (SELECT uniqueId FROM Patient ORDER BY RAND(2) LIMIT 1);
+
+        INSERT INTO TestingRecord (patientId,testDate,resultPCR, cyclePCR, spO2, resultQuick, cycleQuick, respiratory)
+        VALUES (
+            patient_id, 
+			DATE_ADD('2020-01-01', INTERVAL FLOOR(RAND(2) * (DATEDIFF(CURRENT_DATE(), '2020-01-01') + 1)) DAY),
+            True,             -- Boolean resultPCR
+            10,       -- Positive cyclePCR
+            0.96,                   -- Random spO2 between 0 and 1
+            True,             -- Boolean resultQuick
+            10,       -- Positive cycleQuick
+            20       -- Positive respiratory
+        );
+
+        SET i = i + 1;
+    END WHILE;
+
+END //
+
+DELIMITER ;
