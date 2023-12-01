@@ -167,10 +167,6 @@ INSERT INTO Admission (admissionId, patientNumber, workerId, warningPatient, mov
 VALUES
   (7, 7, 4, false, '2023-11-15', 'City Hospital', NULL, NULL);
 
--- THIS is used to check capacity constraint
-INSERT INTO RoomRecord (patientId, roomNumber, building, startDate, endDate)
-VALUES
-  (7,501,'Central Camp','2023-11-15',NULL);
 
 INSERT INTO RoomRecord (patientId, roomNumber, building, startDate, endDate)
 VALUES
