@@ -1,6 +1,6 @@
 <?php
 
-$con = mysqli_connect("localhost", "root", "", "mydb") or die("Couldn't connect");
+$con = mysqli_connect("localhost", "Manager", "123", "mydb") or die("Couldn't connect");
 
 function validate_input($input) {
     $known_bad = array("select", "insert", "update", "delete", "drop", "--", "'");

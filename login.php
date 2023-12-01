@@ -16,22 +16,31 @@ if (isset($_POST['Username']) && isset($_POST['Password'])) {
 
 	$uname = $_POST['Username'];
 	$pass = $_POST['Password'];
-	$sql = "SELECT * FROM users WHERE username='$uname'";
 
-	$result = mysqli_query($con, $sql);
+	if(validate_input($uname))
+	{
+		$sql = "SELECT * FROM users WHERE username='$uname'";
 
-	if (mysqli_num_rows($result) === 1) {
-		$row = mysqli_fetch_assoc($result);
-        if (password_verify($pass, $row['pwd'])) {
-            header("Location: index.php");
-		    exit();
-        }else{
+		$result = mysqli_query($con, $sql);
+
+		if (mysqli_num_rows($result) === 1) {
+			$row = mysqli_fetch_assoc($result);
+			if (password_verify($pass, $row['pwd'])) {
+				header("Location: index.php");
+				exit();
+			}else{
+				header("Location: register.php?error=Incorect Username or Password");
+				exit();
+			}
+		}else{
 			header("Location: register.php?error=Incorect Username or Password");
-		    exit();
+			exit();
 		}
-	}else{
-		header("Location: register.php?error=Incorect Username or Password");
-	    exit();
+	}
+	else
+	{
+		header("Location: register.php?error=Invalid Input");
+		exit();
 	}
 	
 }else{
