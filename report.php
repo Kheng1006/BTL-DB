@@ -339,51 +339,64 @@
                         
                         <?php
                         // Handle form submission
+                        $con = mysqli_connect("localhost", "Manager", "123", "mydb") or die("Couldn't connect");
+
                          if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         //     // Get search term and search type
-                             $searchTerm = $_POST['search'];
+                        $searchTerm = $_POST['search'];
+                        if(!validate_input($searchTerm)){
+                            echo '<div class="error-message">Error: Invalid input.</div>';
+                        }
+                        else{
+                        $sql1 = "SELECT fName, lName, bDate, gender, comorbitidies, highrisk, phone, address
+                        FROM patient
+                        WHERE uniqueId = '$searchTerm'";
+                        $result1 = mysqli_query($con, $sql1);
 
-                            $sql = "SELECT P.fName, P.lName, P.gender, P.comorbitidies, TR.testType, TR.result, TR.testvalue, S.symptomName, T.result AS treatmentResult
-                                    FROM patient P
-                                    JOIN testingRecord TR ON TR.patientId = P.uniqueId
-                                    JOIN symptompatient SP ON SP.patientNumber = P.uniqueId
-                                    JOIN symptom S ON SP.symptomId = S.id
-                                    WHERE TR.patientId ='$searchTerm'";
-                            $result = mysqli_query($con, $sql);
-                            
-                             // Display filtered patients
-                            echo '<h3>Search Results:</h3>';
-                            if ($result->num_rows === 0) {
-                                 echo '<p>No matching patients found.</p>';
-                             } else {
-                                 echo '<table border="1">';
-                                 echo '<tr>';
-                                 echo '<th>Name</th>';
-                                 echo '<th>gender</th>';                                 
-                                 echo '<th>comorbitidies</th>';
-                                 echo '<th>testType</th>';
-                                 echo '<th>Test Result</th>';
-                                 echo '<th>Test Value</th>';
-                                 echo '<th>Symptoms</th>';
-                                 echo '<th>Treatment</th>';
-                                 echo '</tr>';
-                        
-                                 while ($row = $result->fetch_assoc()) {
-                                     echo '<tr>';
-                                     echo '<td>' . $row['fName'] . ' ' . $row['lName'] . '</td>';
-                                    echo '<td>' . $row['gender'] . '</td>';
-                                     echo '<td>' . $row['comorbitidies'] . '</td>';
-                                     echo '<td>' . $row['testType'] . '</td>';
-                                     echo '<td>' . $row['result'] . '</td>';
-                                     echo '<td>' . $row['testValue'] . '</td>';
-                                     echo '<td>' . $row['symptomName'] . '</td>';
-                                     echo '<td>' . $row['treatmentResult'] . '</td>';
-                                     echo '</tr>';
-                                 }
-                        
-                                 echo '</table>';
-                             }
+
+                        // $sql2 = "SELECT TR.*, P.fName, P.lName
+                        //         FROM  patient P
+                        //         INNER JOIN tesingRecord TR ON TR.patientId = P.uniqueId
+                        //         WHERE P.uniqueId ='$searchTerm'";
+                        // $result2 = mysqli_query($con, $sql2);
                     
+                        // $sql3 = "SELECT  S.symptomName, S.seriousness, SP.startDate, SP.endDate
+                        //         FROM patient P
+                        //         JOIN symptompatient SP ON SP.patientNumber = P.uniqueId
+                        //         JOIN symptom S ON SP.symptomId = S.id
+                        //         WHERE uniqueId = $searchTerm";
+                        // $result3 = mysqli_query($con, $sql3);
+                    
+                        // $sql4 = "SELECT W.fName, W.lName, W.roleName, W.degree, T.startDate, T.endDate, Se.specialityName
+                        //          FROM patient P
+                        //          JOIN takingcare T ON T.patientId = P.uniqueId
+                        //          JOIN worker W ON W.workerId = T.nurseID
+                        //          JOIN worker_specialty WS ON W.workerId = WS.workerId
+                        //          JOIn specialty Se ON Se.id = WS.specialty
+                        //          WHERE P.uniqueId ='$searchTerm'";
+                        // $result4 = mysqli_query($con, $sql4);
+                    
+                        // $sql5 = "SELECT W.fName, W.lName, W.roleName, W.degree, T.startDate, T.endDate, Se.specialityName 
+                        // FROM patient P
+                        // JOIN treatment T ON T.patientId = P.uniqueId
+                        // JOIN worker W ON W.workerId = T.doctorId
+                        // JOIN worker_specialty WS ON W.workerId = WS.workerId
+                        // JOIn specialty Se ON Se.id = WS.specialty
+                        // WHERE P.uniqueId ='$searchTerm'";
+                        // $result5 = mysqli_query($con, $sql5);
+                    
+                         while($row = mysqli_fetch_assoc($result1)) {
+                             echo "First Name: " . $row['fName'] . $row['lName'] . "<br>";
+                             echo "Birth Date: " . $row['bDate'] . "<br>";
+                             echo "Gender: " . $row['gender'] . "<br>";
+                             echo "Comorbidities: " . $row['comorbitidies'] . "<br>";
+                             echo "High Risk: " . $row['highrisk'] . "<br>";
+                             echo "Phone: " . $row['phone'] . "<br>";
+                             echo "Address: " . $row['address'] . "<br>";
+                             }
+                    }
+
+
                          }
                         
                     ?>
