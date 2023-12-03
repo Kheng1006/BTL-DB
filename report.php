@@ -1,5 +1,5 @@
 <?php
-    session_start();
+session_start();
 ?>
 
 <!DOCTYPE html>
@@ -31,7 +31,7 @@
     <meta content="summary_large_image" name="twitter:card" /> -->
     <meta content="width=device-width, initial-scale=1" name="viewport" />
     <meta content="Webflow" name="generator" />
-    
+
     <style>
         body {
             font-family: 'Arial', sans-serif;
@@ -40,7 +40,8 @@
             padding: 0;
         }
 
-        h2, h3 {
+        h2,
+        h3 {
             color: #333;
         }
 
@@ -60,7 +61,9 @@
             color: #555;
         }
 
-        input[type="text"], select, input[type="submit"] {
+        input[type="text"],
+        select,
+        input[type="submit"] {
             width: 100%;
             padding: 8px;
             margin-bottom: 10px;
@@ -95,12 +98,13 @@
         }
 
         table {
-        width: 100%;
-        border-collapse: collapse;
-        margin-top: 20px;
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
         }
 
-        th, td {
+        th,
+        td {
             border: 1px solid #ddd;
             padding: 10px;
             text-align: left;
@@ -111,20 +115,21 @@
             color: #fff;
         }
     </style>
-    
-    
+
+
     <link href="style.css" rel="stylesheet" type="text/css" />
-    
+
     <script type="text/javascript">
-        !function (o, c) { var n = c.documentElement, t = " w-mod-";
-        n.className += t + "js", ("ontouchstart" in o || o.DocumentTouch && c instanceof DocumentTouch) && (n.className += t + "touch") }(window, document);
+        !function (o, c) {
+            var n = c.documentElement, t = " w-mod-";
+            n.className += t + "js", ("ontouchstart" in o || o.DocumentTouch && c instanceof DocumentTouch) && (n.className += t + "touch")
+        }(window, document);
     </script>
-    
+
     <!-- Need to change -->
-    <link href="https://assets-global.website-files.com/652a49b013ed5242e0b91280/652a49b013ed5242e0b912f0_favicon-dashdark-webflow-template.svg"
-        rel="shortcut icon"
-        type="image/x-icon"
-    />
+    <link
+        href="https://assets-global.website-files.com/652a49b013ed5242e0b91280/652a49b013ed5242e0b912f0_favicon-dashdark-webflow-template.svg"
+        rel="shortcut icon" type="image/x-icon" />
 
     <!-- Need to change -->
     <link
@@ -143,19 +148,14 @@
             data-duration="400" data-easing="ease" data-easing2="ease" role="banner" class="sidebar-wrapper w-nav">
             <div class="overflow-hidden">
                 <div class="sidebar-logo-section-container">
-                    <a href="index.php" 
-                        aria-current="page"
-                        class="sidebar-logo-link w-nav-brand w--current"
-                    >
+                    <a href="index.php" aria-current="page" class="sidebar-logo-link w-nav-brand w--current">
                         <img src="./images/logobk.svg" loading="eager" alt="HCMUT - Logo" />
                     </a>
-                    
+
                     <div data-w-id="8902ab60-ff18-1ad1-7b19-201b504196b1" class="sidebar-collapsed-icon-btn-wrapper">
                         <div class="sidebar-collapsed-icon-btn">
                             <img src="https://assets-global.website-files.com/652a49b013ed5242e0b91280/652a49b013ed5242e0b912f3_sidebar-icon-dashdark-webflow-template.svg"
-                                loading="eager" 
-                                alt="HCMUT - Icon"
-                            />
+                                loading="eager" alt="HCMUT - Icon" />
                         </div>
                     </div>
 
@@ -164,16 +164,16 @@
                             src="https://assets-global.website-files.com/652a49b013ed5242e0b91280/652a49b013ed5242e0b912f2_sidebar-collapse-icon-dashdark-webflow-template.svg"
                             loading="eager" alt="" /></div>-->
                 </div>
-                
+
                 <!--<div class="sidebar-collapsed-divider"></div>-->
                 <!-- Search bar -->
                 <!--<form action="/search" class="sidebar-search-wrapper w-form"><input type="search"
                         class="input icon-inside-left w-input" maxlength="256" name="query" placeholder="Search for..."
                         id="search" required="" /><input type="submit" value=""
                         class="btn-inside-input-left w-button" /></form>-->
-                
-                
-                
+
+
+
                 <div class="position-relative---z-index-1 logo-and-icon-mobile-container">
                     <nav role="navigation" class="sidebar-menu-container w-nav-menu">
                         <div class="sidebar-menu-collapsed-overlay"></div>
@@ -183,8 +183,7 @@
                         <!-- Printing Service -->
                         <a href="search.php" class="sidebar-dropdown-link" style="text-decoration: none;">
                             <div data-hover="false" data-delay="0" data-w-id="8902ab60-ff18-1ad1-7b19-201b504196bd"
-                                class="dropdown-wrapper sidebar-dropdown w-dropdown"
-                            >
+                                class="dropdown-wrapper sidebar-dropdown w-dropdown">
                                 <div class="dropdown-toggle sidebar-dropdown">
                                     <div class="flex">
                                         <div class="dashdark-custom-icon sidebar-link-icon"></div>
@@ -212,8 +211,7 @@
                         <!-- Printing History -->
                         <a href="testing.php" class="sidebar-dropdown-link" style="text-decoration: none;">
                             <div data-hover="false" data-delay="0" data-w-id="8902ab60-ff18-1ad1-7b19-201b504196bd"
-                                class="dropdown-wrapper sidebar-dropdown w-dropdown"
-                            >
+                                class="dropdown-wrapper sidebar-dropdown w-dropdown">
                                 <div class="dropdown-toggle sidebar-dropdown ">
                                     <div class="flex">
                                         <div class="dashdark-custom-icon sidebar-link-icon"></div>
@@ -225,8 +223,7 @@
 
                         <a href="report.php" class="sidebar-dropdown-link" style="text-decoration: none;">
                             <div data-hover="false" data-delay="0" data-w-id="8902ab60-ff18-1ad1-7b19-201b504196bd"
-                                class="dropdown-wrapper sidebar-dropdown w-dropdown"
-                            >
+                                class="dropdown-wrapper sidebar-dropdown w-dropdown">
                                 <div class="dropdown-toggle sidebar-dropdown ">
                                     <div class="flex">
                                         <div class="dashdark-custom-icon sidebar-link-icon"></div>
@@ -237,24 +234,22 @@
                         </a>
 
                         <!-- Account Settings -->
-                        <div data-hover="false" data-delay="0" data-w-id="8902ab60-ff18-1ad1-7b19-201b5041977e" 
-                            class="dropdown-wrapper sidebar-dropdown w-dropdown"
-                        >
+                        <div data-hover="false" data-delay="0" data-w-id="8902ab60-ff18-1ad1-7b19-201b5041977e"
+                            class="dropdown-wrapper sidebar-dropdown w-dropdown">
                             <div class="dropdown-toggle sidebar-dropdown w-dropdown-toggle">
                                 <div class="flex align-center gap-column-8px">
                                     <!-- Need to change -->
                                     <!-- avatar -->
-                                    <img
-                                        src="https://assets-global.website-files.com/652a49b013ed5242e0b91280/652a49b013ed5242e0b912f7_john-carter-sidebar-avatar-dashdark-webflow-ecommerce-template.jpg"
+                                    <img src="https://assets-global.website-files.com/652a49b013ed5242e0b91280/652a49b013ed5242e0b912f7_john-carter-sidebar-avatar-dashdark-webflow-ecommerce-template.jpg"
                                         loading="eager"
                                         sizes="(max-width: 991px) 100vw, (max-width: 1439px) 32px, (max-width: 1919px) 2vw, 32px"
                                         srcset="https://assets-global.website-files.com/652a49b013ed5242e0b91280/652a49b013ed5242e0b912f7_john-carter-sidebar-avatar-dashdark-webflow-ecommerce-template-p-500.jpg 500w, https://assets-global.website-files.com/652a49b013ed5242e0b91280/652a49b013ed5242e0b912f7_john-carter-sidebar-avatar-dashdark-webflow-ecommerce-template.jpg 600w"
-                                        alt="account avatar" class="avatar-circle _01"
-                                    />
-                                    
-                                        <div class="sidebar-user-text-container">
+                                        alt="account avatar" class="avatar-circle _01" />
+
+                                    <div class="sidebar-user-text-container">
                                         <div class="text-200 sidebar-dropdown-text color-neutral-100">Manager</div>
-                                        <div class="text-100 sidebar-dropdown-text color-neutral-400">Account settings</div>
+                                        <div class="text-100 sidebar-dropdown-text color-neutral-400">Account settings
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="line-rounded-icon sidebar-dropdown-arrow"></div>
@@ -265,37 +260,30 @@
                             <nav class="sidebar-dropdown-list-wrapper sidebar-account-settings-list w-dropdown-list">
                                 <div class="flex-vertical">
                                     <div class="grid-1-column gap-row-16px">
-                                        <a id="w-node-_8902ab60-ff18-1ad1-7b19-201b5041978c-504196ac"
-                                            href=""
-                                            class="font-icon-left-link w-inline-block"
-                                        >
+                                        <a id="w-node-_8902ab60-ff18-1ad1-7b19-201b5041978c-504196ac" href=""
+                                            class="font-icon-left-link w-inline-block">
                                             <div class="dashdark-custom-icon"></div>
                                             <div class="text-100 medium">View profile</div>
                                         </a>
 
-                                        <a id="w-node-_8902ab60-ff18-1ad1-7b19-201b50419791-504196ac"
-                                            href=""
-                                            class="font-icon-left-link w-inline-block"
-                                        >
+                                        <a id="w-node-_8902ab60-ff18-1ad1-7b19-201b50419791-504196ac" href=""
+                                            class="font-icon-left-link w-inline-block">
                                             <div class="dashdark-custom-icon"></div>
                                             <div class="text-100 medium">Profile settings</div>
                                         </a>
-                                        
-                                        <a id="w-node-_8902ab60-ff18-1ad1-7b19-201b50419796-504196ac"
-                                            href=""
-                                            class="font-icon-left-link w-inline-block"
-                                        >
+
+                                        <a id="w-node-_8902ab60-ff18-1ad1-7b19-201b50419796-504196ac" href=""
+                                            class="font-icon-left-link w-inline-block">
                                             <div class="dashdark-custom-icon"></div>
                                             <div class="text-100 medium">Notifications</div>
                                         </a>
                                     </div>
-                                    
+
                                     <div class="sidebar-account-settings-divider"></div>
                                     <div class="grid-1-column gap-row-16px">
                                         <a id="w-node-_8902ab60-ff18-1ad1-7b19-201b504197a7-504196ac"
                                             href="register.php"
-                                            class="font-icon-left-link color-red-300 w-inline-block"
-                                        >
+                                            class="font-icon-left-link color-red-300 w-inline-block">
                                             <div class="dashdark-custom-icon"></div>
                                             <div class="text-100 medium">Log out</div>
                                         </a>
@@ -306,14 +294,11 @@
                     </nav>
 
 
-                    <a href="#" class="sidebar-logo-link show-on-tablet w-nav-brand"><img
-                        src="./images/logobk.svg"
-                        loading="eager" alt="Dashdark X Webflow Template - Logo" /></a>
+                    <a href="#" class="sidebar-logo-link show-on-tablet w-nav-brand"><img src="./images/logobk.svg"
+                            loading="eager" alt="Dashdark X Webflow Template - Logo" /></a>
                     <div class="hamburger-menu-wrapper w-nav-button">
-                        <div class="sidebar-mobile-menu-icon-wrapper"><img
-                                src="./images/leftarrow.svg"
-                                loading="eager" alt="" class="sidebar-mobile-menu-icon left" /><img
-                                src="./images/rightarrow.svg"
+                        <div class="sidebar-mobile-menu-icon-wrapper"><img src="./images/leftarrow.svg" loading="eager"
+                                alt="" class="sidebar-mobile-menu-icon left" /><img src="./images/rightarrow.svg"
                                 loading="eager" alt="" class="sidebar-mobile-menu-icon right" /></div>
                     </div>
                 </div>
@@ -326,23 +311,24 @@
             <div class="dashboard-content">
                 <div class="dashboard-main-content">
                     <?php
-                        include "config.php";
+                    include "config.php";
                     ?>
-                        <h2>Patient Search</h2>
+                    <h2>Patient Search Test</h2>
 
-                        <form method="post" action="">
-                            <label for="search">Search:</label>
-                            <input type="text" name="search" id="search" placeholder="Enter ID">
-                        
-                            <input type="submit" value="Search">
-                        </form>
-                        
-                        <?php
-                        // Handle form submission
-                        $con = mysqli_connect("localhost", "Manager", "123", "mydb") or die("Couldn't connect");
+                    <form method="post" action="">
+                        <label for="search">Search:</label>
+                        <input type="text" name="search" id="search" placeholder="Enter ID">
 
-                         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-                        //     // Get search term and search type
+                        <input type="submit" value="Search">
+                    </form>
+                    
+                    <?php
+
+                    // Handle form submission
+                    
+                    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+                         // Get search term and search type
                         $searchTerm = $_POST['search'];
                         if(!validate_input($searchTerm)){
                             echo '<div class="error-message">Error: Invalid input.</div>';
@@ -354,67 +340,140 @@
                         $result1 = mysqli_query($con, $sql1);
 
 
-                        // $sql2 = "SELECT TR.*, P.fName, P.lName
-                        //         FROM  patient P
-                        //         INNER JOIN tesingRecord TR ON TR.patientId = P.uniqueId
-                        //         WHERE P.uniqueId ='$searchTerm'";
-                        // $result2 = mysqli_query($con, $sql2);
+                        $sql2 = "SELECT TR.*, P.fName, P.lName
+                                FROM  patient P
+                                JOIN testingrecord TR ON TR.patientId = P.uniqueId
+                                WHERE P.uniqueId ='$searchTerm'";
+                        $result2 = mysqli_query($con, $sql2);
                     
-                        // $sql3 = "SELECT  S.symptomName, S.seriousness, SP.startDate, SP.endDate
-                        //         FROM patient P
-                        //         JOIN symptompatient SP ON SP.patientNumber = P.uniqueId
-                        //         JOIN symptom S ON SP.symptomId = S.id
-                        //         WHERE uniqueId = $searchTerm";
-                        // $result3 = mysqli_query($con, $sql3);
+                        $sql3 = "SELECT  S.symptomName, S.seriousness, SP.startDate, SP.endDate
+                                FROM patient P
+                                JOIN symptompatient SP ON SP.patientNumber = P.uniqueId
+                                JOIN symptom S ON SP.symptomId = S.id
+                                WHERE uniqueId = '$searchTerm'";
+                        $result3 = mysqli_query($con, $sql3);
                     
-                        // $sql4 = "SELECT W.fName, W.lName, W.roleName, W.degree, T.startDate, T.endDate, Se.specialityName
-                        //          FROM patient P
-                        //          JOIN takingcare T ON T.patientId = P.uniqueId
-                        //          JOIN worker W ON W.workerId = T.nurseID
-                        //          JOIN worker_specialty WS ON W.workerId = WS.workerId
-                        //          JOIn specialty Se ON Se.id = WS.specialty
-                        //          WHERE P.uniqueId ='$searchTerm'";
-                        // $result4 = mysqli_query($con, $sql4);
+                        $sql4 = "SELECT W.fName, W.lName, W.roleName, W.degree, T.startDate, T.endDate, Se.specialtyName
+                                 FROM patient P
+                                 JOIN takingcare T ON T.patientId = P.uniqueId
+                                 JOIN worker W ON W.workerId = T.nurseID
+                                 JOIN worker_specialty WS ON W.workerId = WS.workerId
+                                 JOIn specialty Se ON Se.id = WS.specialty
+                                 WHERE P.uniqueId ='$searchTerm'";
+                        $result4 = mysqli_query($con, $sql4);
                     
-                        // $sql5 = "SELECT W.fName, W.lName, W.roleName, W.degree, T.startDate, T.endDate, Se.specialityName 
-                        // FROM patient P
-                        // JOIN treatment T ON T.patientId = P.uniqueId
-                        // JOIN worker W ON W.workerId = T.doctorId
-                        // JOIN worker_specialty WS ON W.workerId = WS.workerId
-                        // JOIn specialty Se ON Se.id = WS.specialty
-                        // WHERE P.uniqueId ='$searchTerm'";
-                        // $result5 = mysqli_query($con, $sql5);
-                    
+                        $sql5 = "SELECT W.fName, W.lName, W.roleName, W.degree, T.startDate, T.endDate, Se.specialtyName, T.result
+                        FROM patient P
+                        JOIN treatment T ON T.patientId = P.uniqueId
+                        JOIN worker W ON W.workerId = T.doctorId
+                        JOIN worker_specialty WS ON W.workerId = WS.workerId
+                        JOIn specialty Se ON Se.id = WS.specialty
+                        WHERE P.uniqueId ='$searchTerm'";
+                        $result5 = mysqli_query($con, $sql5);
+
+                        echo "<br>";
+                        echo "<h1 style='text-align: center;'>PATIENT REPORT</h1>";
+                        echo "<h3 font-family: Arial;>Patient information</h3>";
                          while($row = mysqli_fetch_assoc($result1)) {
-                             echo "First Name: " . $row['fName'] . $row['lName'] . "<br>";
+                             echo "<p style='border: 1px solid black; padding: 10px;'>"; 
+                             echo "Name: " . $row['fName'] . $row['lName'] . "<br>";
                              echo "Birth Date: " . $row['bDate'] . "<br>";
                              echo "Gender: " . $row['gender'] . "<br>";
                              echo "Comorbidities: " . $row['comorbitidies'] . "<br>";
                              echo "High Risk: " . $row['highrisk'] . "<br>";
                              echo "Phone: " . $row['phone'] . "<br>";
                              echo "Address: " . $row['address'] . "<br>";
+                             echo "</p>"; 
                              }
+
+                        echo "<br>";
+                        echo "<h3>Testing record</h3>";
+                             echo '<table border="1">';
+                             echo '<tr>';
+                             echo '<th>Name</th>';
+                             echo '<th>Test Number</th>';
+                             echo '<th>Test Date</th>';
+                             echo '<th>PCR Result</th>';
+                             echo '<th>PCR Cycle</th>';
+                             echo '<th>Quick Test Result</th>';
+                             echo '<th>Quick Test Cycle</th>';
+                             echo '<th>SPO2 Test Result</th>';
+                             echo '<th>Respiratory</th>';
+                             echo '</tr>';
+                        
+                        
+                             while ($row = $result2->fetch_assoc()) {
+                             echo '<tr>';
+                             echo '<td>' . $row['lName'] . ' ' . $row['fName'] . '</td>';
+                             echo '<td>' . $row['testNumber'] . '</td>';
+                             echo '<td>' . $row['testDate'] . '</td>';
+                             echo '<td>' . $row['resultPCR'] . '</td>';
+                             echo '<td>' . $row['cyclePCR'] . '</td>';
+                             echo '<td>' . $row['resultQuick'] . '</td>';
+                             echo '<td>' . $row['cycleQuick'] . '</td>';
+                             echo '<td>' . $row['spO2'] . '</td>';
+                             echo '<td>' . $row['respiratory'] . '</td>';
+                             echo '</tr>';
+                             }
+
+                            echo '</table>';
+                            echo "<br>";
+                            echo "<br>";
+                            echo "<h3 font-family: Arial;>Symptoms</h3>"; 
+                            while ($row = mysqli_fetch_assoc($result3)) { 
+                            echo "<p style='border: 1px solid black; padding: 10px;'>"; 
+                            echo "Symptom Name: " . $row['symptomName'] . "<br>"; 
+                            echo "Seriousness: " . $row['seriousness'] . "<br>"; 
+                            echo "Start Date: " . $row['startDate'] . "<br>"; 
+                            echo "End Date: " . $row['endDate'] . "<br>"; 
+                            echo "</p>"; 
+                            }
+                            
+                            echo "<br>";
+                            echo "<h3 font-family: Arial;>Taking care by</h3>";
+                            while ($row = mysqli_fetch_assoc($result4)) {
+                            echo "<p style='border: 1px solid black; padding: 10px;'>";
+                            echo "Name: " . $row['fName'] . $row['lName'] . "<br>";
+                            echo "Role Name: " . $row['roleName'] . "<br>";
+                            echo "Degree: " . $row['degree'] . "<br>";
+                            echo "Start Date: " . $row['startDate'] . "<br>";
+                            echo "End Date: " . $row['endDate'] . "<br>";
+                            echo "Specialty Name: " . $row['specialtyName'] . "<br>";
+                            echo "------------------------<br>";
+                            echo "</p>"; 
+                            }
+                            
+
+                            echo "<br>";
+                            echo "<h3 font-family: Arial;>TreatMent</h3>";
+                            while ($row = mysqli_fetch_assoc($result5)) {
+                            echo "<p style='border: 1px solid black; padding: 10px;'>";
+                            echo "<h5>Doctor</h5>";
+                            echo "First Name: " . $row['fName'] . $row['lName'] . "<br>";
+                            echo "Role: " . $row['roleName'] . "<br>";
+                            echo "Degree: " . $row['degree'] . "<br>";
+                            echo "Start Date: " . $row['startDate'] . "<br>";
+                            echo "End Date: " . $row['endDate'] . "<br>";
+                            echo "Specialty: " . $row['specialtyName'] . "<br>";
+                            echo "----------------------------------------<br>";
+                            echo "Treatment result: ". $row['result'] ."<br";
+                            echo "</p>"; 
+                            }
+
+
+                       
                     }
 
 
-                         }
-                        
-                    ?>
+
+                      }
                     
+                    ?>
+
                 </div>
 
 
-                <div class="dashboard-footer-wrapper">
-                    <div class="container-default w-container">
-                        <!--<div class="text-200 medium">Copyright © Dashdark X | Designed by <a
-                                href="https://brixtemplates.com/" target="_blank" class="text-decoration-none">BRIX
-                                Templates</a> - Powered by <a href="https://webflow.com/" target="_blank"
-                                class="text-decoration-none">Webflow</a></div>-->
-                        <div class="text-200 medium" style="padding-bottom: 20px;">Contact us: something@gmail.com</div>
-                        <div class="text-200 medium" style="padding-bottom: 20px;">Phone number: 1234567890</div>
-                        <div class="text-200 medium" style="padding-bottom: 20px;">Address: 268 Lý Thường Kiệt</div>
-                    </div>
-                </div>
+
             </div>
         </div>
     </div>
@@ -425,16 +484,12 @@
     <div class="loading-bar-wrapper">
         <div class="loading-bar"></div>
     </div>
-    
-    <script src="https://d3e54v103j8qbb.cloudfront.net/js/jquery-3.5.1.min.dc5e7f18c8.js?site=652a49b013ed5242e0b91280"
-        type="text/javascript"
-        integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
-        crossorigin="anonymous"
-    >
-    </script>
 
-    <script src="script.js"
-        type="text/javascript">
+    <script src="https://d3e54v103j8qbb.cloudfront.net/js/jquery-3.5.1.min.dc5e7f18c8.js?site=652a49b013ed5242e0b91280"
+        type="text/javascript" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous">
+        </script>
+
+    <script src="script.js" type="text/javascript">
     </script>
 
 </body>
