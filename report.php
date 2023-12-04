@@ -358,7 +358,7 @@ session_start();
                                  JOIN takingcare T ON T.patientId = P.uniqueId
                                  JOIN worker W ON W.workerId = T.nurseID
                                  JOIN worker_specialty WS ON W.workerId = WS.workerId
-                                 JOIn specialty Se ON Se.id = WS.specialty
+                                 JOIN specialty Se ON Se.id = WS.specialty
                                  WHERE P.uniqueId ='$searchTerm'";
                         $result4 = mysqli_query($con, $sql4);
                     
@@ -367,9 +367,16 @@ session_start();
                         JOIN treatment T ON T.patientId = P.uniqueId
                         JOIN worker W ON W.workerId = T.doctorId
                         JOIN worker_specialty WS ON W.workerId = WS.workerId
-                        JOIn specialty Se ON Se.id = WS.specialty
+                        JOIN specialty Se ON Se.id = WS.specialty
                         WHERE P.uniqueId ='$searchTerm'";
                         $result5 = mysqli_query($con, $sql5);
+
+                        $sql6  = "SELECT RR.roomNumber, RR.building, RR.startDate, RR.endDate, R.floorNumber, R.roomType
+                                  FROM patient P
+                                  JOIN roomrecord RR ON P.uniqueId = RR.patientId
+                                  JOIN room R ON RR.roomNumber = R.roomNumber
+                                  WHERE P.uniqueId = '$searchTerm'";
+                        $result6 = mysqli_query($con, $sql6);
 
                         echo "<br>";
                         echo "<h1 style='text-align: center;'>PATIENT REPORT</h1>";
@@ -416,19 +423,54 @@ session_start();
                              echo '</tr>';
                              }
 
+                           
                             echo '</table>';
                             echo "<br>";
                             echo "<br>";
                             echo "<h3 font-family: Arial;>Symptoms</h3>"; 
+                            echo '<table border="1">';
+                            echo '<tr>';
+                            echo '<th>symptomName</th>';
+                            echo '<th>seriousness</th>';
+                            echo '<th>Start Date</th>';
+                            echo '<th>End Date</th>';
+                            echo '</tr>';
+
                             while ($row = mysqli_fetch_assoc($result3)) { 
-                            echo "<p style='border: 1px solid black; padding: 10px;'>"; 
-                            echo "Symptom Name: " . $row['symptomName'] . "<br>"; 
-                            echo "Seriousness: " . $row['seriousness'] . "<br>"; 
-                            echo "Start Date: " . $row['startDate'] . "<br>"; 
-                            echo "End Date: " . $row['endDate'] . "<br>"; 
-                            echo "</p>"; 
+                            echo '<tr>';
+                             echo '<td>' . $row['symptomName'] . '</td>';
+                             echo '<td>' . $row['seriousness'] . '</td>';
+                             echo '<td>' . $row['startDate'] . '</td>';
+                             echo '<td>' . $row['endDate'] . '</td>';
+                             echo '</tr>';
                             }
-                            
+
+                            echo '<table>';
+                            echo "<br>";
+                            echo "<br>";
+                            echo "<h3 font-family: Arial;>Room Record</h3>"; 
+                            echo '<table border="1">';
+                            echo '<tr>';
+                            echo '<th>Room Number</th>';
+                            echo '<th>Room Type</th>';
+                            echo '<th>Building</th>';
+                            echo '<th>Floor Number</th>';
+                            echo '<th>Start Date</th>';
+                            echo '<th>End Date</th>';
+                            echo '</tr>';
+
+                            while($row = mysqli_fetch_assoc($result6)){
+                                echo '<td>'. $row['roomNumber'] . '</td>';
+                                echo '<td>'. $row['roomType'] . '</td>';
+                                echo '<td>'. $row['building'] . '</td>';
+                                echo '<td>'. $row['floorNumber'] . '</td>';
+                                echo '<td>'. $row['startDate'] . '</td>';
+                                echo '<td>'. $row['endDate'] . '</td>';
+                                echo '</tr>';
+                            }
+                            echo '<table>';
+
+                            echo "<br>";
                             echo "<br>";
                             echo "<h3 font-family: Arial;>Taking care by</h3>";
                             while ($row = mysqli_fetch_assoc($result4)) {
@@ -446,20 +488,27 @@ session_start();
 
                             echo "<br>";
                             echo "<h3 font-family: Arial;>TreatMent</h3>";
+                            echo '<table border="1">';
+                             echo '<tr>';
+                             echo '<th>Name</th>';
+                             echo '<th>Role</th>';
+                             echo '<th>Degree</th>';
+                             echo '<th>Start Date</th>';
+                             echo '<th>End Date</th>';
+                             echo '<th>Specialty</th>';
+                             echo '<th>Treatment result</th>';
+                             echo '</tr>';
+
                             while ($row = mysqli_fetch_assoc($result5)) {
-                            echo "<h5>Doctor</h5>";
-                            echo "<p style='border: 1px solid black; padding: 10px;'>";
-                            echo "First Name: " . $row['fName'] . $row['lName'] . "<br>";
-                            echo "Role: " . $row['roleName'] . "<br>";
-                            echo "Degree: " . $row['degree'] . "<br>";
-                            echo "Start Date: " . $row['startDate'] . "<br>";
-                            echo "End Date: " . $row['endDate'] . "<br>";
-                            echo "Specialty: " . $row['specialtyName'] . "<br>";
-                            echo "----------------------------------------<br>";
-                            echo "<h5>Treatment result</h5>";
-                            echo "<p style='border: 1px solid black; padding: 10px;'>";
-                            echo $row['result'] . "<br>";
-                            echo "</p>"; 
+                            echo '<tr>';
+                            echo '<td>' . $row['fName'] .' '. $row['lName'] . '</td>';
+                            echo '<td>' . $row['roleName'] . '</td>';
+                            echo '<td>' . $row['degree'] . '</td>';
+                            echo '<td>' . $row['startDate'] . '</td>';
+                            echo '<td>' . $row['endDate'] . '</td>';
+                            echo '<td>' . $row['specialtyName'] . '</td>';
+                            echo '<td>' . $row['result'] . '</td>';
+                            echo "</tr>"; 
                             }
 
 
