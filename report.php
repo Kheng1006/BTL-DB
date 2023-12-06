@@ -422,9 +422,8 @@ session_start();
                              echo '<td>' . $row['respiratory'] . '</td>';
                              echo '</tr>';
                              }
-
-                           
-                            echo '</table>';
+                             echo '</table>';
+                
                             echo "<br>";
                             echo "<br>";
                             echo "<h3 font-family: Arial;>Symptoms</h3>"; 
@@ -444,8 +443,8 @@ session_start();
                              echo '<td>' . $row['endDate'] . '</td>';
                              echo '</tr>';
                             }
-
                             echo '<table>';
+
                             echo "<br>";
                             echo "<br>";
                             echo "<h3 font-family: Arial;>Room Record</h3>"; 
@@ -473,18 +472,26 @@ session_start();
                             echo "<br>";
                             echo "<br>";
                             echo "<h3 font-family: Arial;>Taking care by</h3>";
+                            echo '<table border="1">';
+                            echo '<tr>';
+                            echo '<th>Name</th>';
+                            echo '<th>Role</th>';
+                            echo '<th>Degree</th>';
+                            echo '<th>Start Date</th>';
+                            echo '<th>End Date</th>';
+                            echo '<th>Specialty</th>';
+                            echo '</tr>';
+
                             while ($row = mysqli_fetch_assoc($result4)) {
                             echo "<p style='border: 1px solid black; padding: 10px;'>";
-                            echo "Name: " . $row['fName'] . $row['lName'] . "<br>";
-                            echo "Role Name: " . $row['roleName'] . "<br>";
-                            echo "Degree: " . $row['degree'] . "<br>";
-                            echo "Start Date: " . $row['startDate'] . "<br>";
-                            echo "End Date: " . $row['endDate'] . "<br>";
-                            echo "Specialty Name: " . $row['specialtyName'] . "<br>";
-                            echo "------------------------<br>";
-                            echo "</p>"; 
+                            echo '<td>' . $row['fName'] . $row['lName'] . '</td>';
+                            echo '<td>' . $row['roleName'] . '</td>';
+                            echo '<td>' . $row['degree'] . '</td>';
+                            echo '<td>' . $row['startDate'] .'</td>';
+                            echo '<td>' . $row['endDate'] . '</td>';
+                            echo '<td>' . $row['specialtyName'] . '</td>';
                             }
-                            
+                            echo '<table>';
 
                             echo "<br>";
                             echo "<h3 font-family: Arial;>TreatMent</h3>";
@@ -510,6 +517,7 @@ session_start();
                             echo '<td>' . $row['result'] . '</td>';
                             echo "</tr>"; 
                             }
+                            echo '<table>';
 
 
                        
