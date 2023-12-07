@@ -11,7 +11,7 @@ function validate_input($input) {
             break;
         }
     }
-    $good_password_chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%&!_-";
+    $good_password_chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%&!_-/, ";
     $validatepassword = true;
     for ($i = 0; $i < strlen($input); $i++) {
         $c = $input[$i];

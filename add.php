@@ -370,8 +370,8 @@
                             $highRisk = isset($_POST["highRisk"]) ? 1 : 0;
                             $phone = $_POST["phone"];
                             $address = $_POST["address"];
-                            if(validate_input($id) && validate_input($ssn) && validate_input($fName) && validate_input($lName) && validate_input($gender) && validate_input($comorbidities) &&
-                            validate_input($highRisk) && validate_input($phone) && validate_input($address)){
+                            if(validate_input($id) && validate_input($ssn) && validate_input($fName) && validate_input($lName) && validate_input($gender) && validate_input($comorbidities) 
+                            && validate_input($phone) && validate_input($address)){
                                 // SQL query to insert data into the Patient table
                                 $sql = "INSERT INTO patient (uniqueID, ssn, fName, lName, bDate, gender, comorbitidies, highrisk, phone, address) 
                                 VALUES ('$id', '$ssn', '$fName', '$lName', '$bDate', '$gender', '$comorbidities', $highRisk, '$phone', '$address')";
