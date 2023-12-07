@@ -383,7 +383,7 @@ session_start();
                         echo "<h3 font-family: Arial;>Patient information</h3>";
                          while($row = mysqli_fetch_assoc($result1)) {
                              echo "<p style='border: 1px solid black; padding: 10px;'>"; 
-                             echo "Name: " . $row['fName'] . $row['lName'] . "<br>";
+                             echo "Name: " . $row['lName'] . ' ' . $row['fName'] . "<br>";
                              echo "Birth Date: " . $row['bDate'] . "<br>";
                              echo "Gender: " . $row['gender'] . "<br>";
                              echo "Comorbidities: " . $row['comorbitidies'] . "<br>";
@@ -484,7 +484,7 @@ session_start();
 
                             while ($row = mysqli_fetch_assoc($result4)) {
                             echo "<p style='border: 1px solid black; padding: 10px;'>";
-                            echo '<td>' . $row['fName'] . $row['lName'] . '</td>';
+                            echo '<td>' . $row['lName'] . ' ' . $row['fName'] . '</td>';
                             echo '<td>' . $row['roleName'] . '</td>';
                             echo '<td>' . $row['degree'] . '</td>';
                             echo '<td>' . $row['startDate'] .'</td>';
@@ -508,7 +508,7 @@ session_start();
 
                             while ($row = mysqli_fetch_assoc($result5)) {
                             echo '<tr>';
-                            echo '<td>' . $row['fName'] .' '. $row['lName'] . '</td>';
+                            echo '<td>' . $row['lName'] .' '. $row['fName'] . '</td>';
                             echo '<td>' . $row['roleName'] . '</td>';
                             echo '<td>' . $row['degree'] . '</td>';
                             echo '<td>' . $row['startDate'] . '</td>';
